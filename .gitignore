@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+node_modules/
+vendor/
+build/
+dist/
+.vs/
+*.log
+coverage/
+.DS_Store
+work/
+phase1-preserved-source/
+api key domain mailing.txt
