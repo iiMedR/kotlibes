@@ -14,3 +14,30 @@
 	src: url('./assets/font/CentraNo2-Book.ttf');
 	font-weight: 400;
 }
+/************ Default Css ************/
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #353535;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+  border-radius: 3px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
