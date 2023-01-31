@@ -17,3 +17,9 @@ Kotlibes is a planned AI marketing application for small and medium businesses, 
 5. Integration and final documentation, ending February 27, 2024.
 
 This milestone contains the project foundation only. See RECONSTRUCTION.md for the retrospective dating and source provenance.
+
+## Phase 1 status
+
+The React mounting entry, minimal root class, Bootstrap stylesheet, public metadata and icons, Centra fonts, and global foundation styles are present. Feature routes and implementations remain planned.
+
+Frontend commands and configuration are documented in `frontend/myapp/README.md`. Build verification and deferred dependencies are recorded in RECONSTRUCTION.md.
