@@ -23,3 +23,15 @@ Credential notes, local environment files, database passwords, payment keys, and
 ## Schedule adjustments
 
 January 23 responsive-style commit omitted: supplied media queries are feature-specific and do not apply to the empty foundation. January 27 asset commit omitted: no additional asset is referenced by this foundation. Result: 20 meaningful commits across nine active days. No empty commits are used.
+
+## Phase 1 inventory and verification
+
+Included: root README and ignore rules; frontend setup README and staged package manifest; public HTML, manifest, robots, favicon and two logo icons; React mounting and minimal root class; Bootstrap integration; three Centra font files; supplied font, global reset, scrolling, scrollbar, body and heading rules.
+
+Verified byte-for-byte against the preserved snapshot: frontend README, mounting entry, manifest, robots, icons, and three fonts. CSS blocks were extracted verbatim from the supplied global sections; dependencies and npm scripts retain their supplied values. App.js adaptation and public-script exclusions are described above. Every commit's staged paths and diff summary were checked for phase scope; imported textual candidates were scanned for credential signatures. Backend, database, feature pages, account/tool/dashboard/billing styles, and local credential files are absent from tracked Phase 1 content.
+
+Build attempt: Node was invoked against the React Scripts build entry. It failed with MODULE_NOT_FOUND because node_modules/react-scripts is not installed. No successful build is claimed. No new dependency versions were installed or generated lockfile published. Full build validation remains pending installation of suitable snapshot dependencies; the supplied version ranges alone do not provide reproducible transitive resolution for this reduced manifest.
+
+Foundation dependencies included: react, react-dom, react-scripts, bootstrap. No additional package is required by the current foundation source. Remaining setup: installed dependencies and a reviewed phase-specific lockfile. All other supplied packages and the full application lockfile are deferred until their code enters later phases.
+
+The final sequence has 20 commits on January 1, 3, 6, 9, 12, 16, 19, 23, and 31; each day has at most three commits. Author and committer dates use the same UTC convention. The sequence stops after Phase 1.
