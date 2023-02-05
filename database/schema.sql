@@ -28,6 +28,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(50) NOT NULL,
   `email` varchar(60) NOT NULL,
   `password` varchar(60) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `status` varchar(50) NOT NULL DEFAULT '''inactive''',
+  `tokens` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
