@@ -14,5 +14,10 @@ class DbConnect
 	private $user = 'REPLACE_WITH_YOUR_VALUE';
 	private $pass = 'REPLACE_WITH_YOUR_VALUE';
 
+    public function connect()
+    {
+            $conn = new PDO('mysql:host=' . $this->server . ';dbname=' . $this->dbname, $this->user, $this->pass);
+            return $conn;
+    }
 }
 ?>
