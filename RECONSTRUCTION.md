@@ -4,7 +4,7 @@ This repository's dated sequence reconstructs an estimated implementation order 
 
 ## Boundaries
 
-Phase 1: January 1â€“31, 2023 â€” project foundation. The overall reconstruction ends February 27, 2024. No February implementation is included in this phase.
+Phase 1: January 1–31, 2023 — project foundation. The overall reconstruction ends February 27, 2024. No February implementation is included in this phase.
 
 The owner authorized replacement of the earlier full-project root commit. Complete original-source and published-repository snapshots, including their histories, remain outside this tracked repository.
 
@@ -47,3 +47,17 @@ Introduced the active DbConnect class in configuration, PDO, then options/error-
 Introduced password hashing and verification separately; final password.php is the supplied file. BaseURL.js is copied unchanged, with default http://localhost:80 and alternative addresses only in comments. No deployment abstraction is added.
 
 Registration/login endpoints remain deferred to Phase 3. Password reset tables are deferred to Phase 4; tools and usage tables to Phase 8; subscriptions and variants to Phase 9; newsletter to Phase 10. No later tables, account pages or features enter this phase.
+
+### Phase 2 inventory and actual verification
+
+Files introduced: database/schema.sql, backend/DbConnect.php, backend/password.php, backend/README.md, frontend/myapp/src/components/BaseURL.js. Root README and this record were updated.
+
+Source checks passed: final users CREATE/DROP and applicable initialization/closing sections match normalized supplied text; exactly nine supplied user fields and only one table are present. No seed data, foreign keys, invented indexes or later tables are included. Password helpers and BaseURL match snapshot bytes; the active DbConnect section matches normalized source apart from the documented PHP opening wrapper and prior credential substitutions. Every staged diff was reviewed for allowed paths and credential signatures.
+
+Node checked BaseURL.js syntax as an ES module and imported the supplied configuration in isolation; default export resolved to http://localhost:80. No account-page wiring was introduced.
+
+PHP syntax checks unavailable: no PHP runtime found on PATH or in the checked local installation paths. No PHP execution is claimed.
+
+No live database connection or SQL import was attempted; a configured PHP/PDO/MySQL environment is required for runtime verification. The Phase 1 frontend dependency/build limitation remains. No new frontend dependency is required by this constant export.
+
+Schedule: 12 nonempty commits on February 2, 5, 9, 13, 17, 21, 25 and 28. At most two commits per active day, matching UTC author and committer dates, following the unchanged January history. Phase 2 stops here.
