@@ -4,7 +4,7 @@ This repository's dated sequence reconstructs an estimated implementation order 
 
 ## Boundaries
 
-Phase 1: January 1–31, 2023 — project foundation. The overall reconstruction ends February 27, 2024. No February implementation is included in this phase.
+Phase 1: January 1â€“31, 2023 â€” project foundation. The overall reconstruction ends February 27, 2024. No February implementation is included in this phase.
 
 The owner authorized replacement of the earlier full-project root commit. Complete original-source and published-repository snapshots, including their histories, remain outside this tracked repository.
 
@@ -35,3 +35,15 @@ Build attempt: Node was invoked against the React Scripts build entry. It failed
 Foundation dependencies included: react, react-dom, react-scripts, bootstrap. No additional package is required by the current foundation source. Remaining setup: installed dependencies and a reviewed phase-specific lockfile. All other supplied packages and the full application lockfile are deferred until their code enters later phases.
 
 The final sequence has 20 commits on January 1, 3, 6, 9, 12, 16, 19, 23, and 31; each day has at most three commits. Author and committer dates use the same UTC convention. The sequence stops after Phase 1.
+
+## Phase 2: February 1–28, 2023 — database and backend foundation
+
+Continues Phase 1 on main with assigned UTC noon timestamps and the configured Git identity. Existing January commits and original snapshots remain unchanged. Dates describe reconstruction order, not verified original activity.
+
+Introduced the supplied SQL initialization/charset restoration and users table incrementally; the final table matches the snapshot. The supplied dump header, including its 2026 generation date, remains intact as source provenance. It is not claimed to be an original 2023 dump. No dump was executed.
+
+Introduced the active DbConnect class in configuration, PDO, then options/error-handling sections. Host, database name, username and password are placeholders from the sanitized snapshot. The inactive commented-out duplicate class was omitted; active headers, private properties, DSN, error mode, return and catch behavior remain supplied. Intermediate staging is superseded by the final source-derived class.
+
+Introduced password hashing and verification separately; final password.php is the supplied file. BaseURL.js is copied unchanged, with default http://localhost:80 and alternative addresses only in comments. No deployment abstraction is added.
+
+Registration/login endpoints remain deferred to Phase 3. Password reset tables are deferred to Phase 4; tools and usage tables to Phase 8; subscriptions and variants to Phase 9; newsletter to Phase 10. No later tables, account pages or features enter this phase.
