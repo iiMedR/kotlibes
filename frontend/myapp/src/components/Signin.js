@@ -3,6 +3,12 @@ import * as Components from './Components';
 
 const Signin = () => {
     const [signIn, toggle] = React.useState(true);
+    const [inputs, setInputs] = useState({});
+      const handleChange = (event) => {
+          const name = event.target.name;
+          const value = event.target.value;
+          setInputs(values => ({...values, [name]: value}));
+      }
 
   return (
     <Components.Container className='signInUp'>
