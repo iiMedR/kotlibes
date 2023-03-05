@@ -15,6 +15,8 @@ const Signin = () => {
              <Components.SignUpContainer className='SignUpContainer' signinIn={signIn}>
                  <Components.Form className='sign-Form signup-Form'>
                      <Components.Title className='sign-Title'>Create Account</Components.Title>
+                     <Components.Input className='sign-Input' type='text' name="name" placeholder='Name' onChange={handleChange} required/>
+                     <Components.Input className='sign-Input' type='email' name="email" placeholder='Email' onChange={handleChange} required/>
                      <Components.Button className='sign-Button'>Sign Up</Components.Button>
                  </Components.Form>
              </Components.SignUpContainer>
