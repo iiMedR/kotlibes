@@ -4,10 +4,30 @@ import * as Components from './Components';
 const Signin = () => {
     const [signIn, toggle] = React.useState(true);
     const [inputs, setInputs] = useState({});
-      const handleChange = (event) => {
+    const [errors, setErrors] = useState('');
+const handleChange = (event) => {
           const name = event.target.name;
           const value = event.target.value;
           setInputs(values => ({...values, [name]: value}));
+
+            // Check if the input field is empty
+        if(value === ""){
+            setErrors(prevErrors => ({...prevErrors, [name]: "This field is required"}))
+        } else {
+            setErrors(prevErrors => ({...prevErrors, [name]: ""}))
+        }
+    
+        // Check if the input field has a certain pattern
+        if(name === "email" && !value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+            setErrors(prevErrors => ({...prevErrors, [name]: "Invalid email address"}))
+        }
+
+        // Check if the password input field hasn't a certain pattern
+        //if(name === "password" && !value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#.$+%^&*])[a-zA-Z!@#+.$%^&*]{8,}$/)){
+            //  setErrors(prevErrors => ({...prevErrors, [name]: "at least 8 letters"}))
+        //}
+
+
       }
 
   return (
