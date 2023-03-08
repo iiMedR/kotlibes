@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import * as Components from './Components';
+import Loader from './Loader';
 
 const Signin = () => {
     const [signIn, toggle] = React.useState(true);
     const [inputs, setInputs] = useState({});
     const [errors, setErrors] = useState('');
+    const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 const handleChange = (event) => {
           const name = event.target.name;
           const value = event.target.value;
@@ -32,12 +35,17 @@ const handleChange = (event) => {
 
   return (
     <Components.Container className='signInUp'>
+        {isLoading && <Loader />}
              <Components.SignUpContainer className='SignUpContainer' signinIn={signIn}>
                  <Components.Form className='sign-Form signup-Form'>
                      <Components.Title className='sign-Title'>Create Account</Components.Title>
                      <Components.Input className='sign-Input' type='text' name="name" placeholder='Name' onChange={handleChange} required/>
+                     {errors.name && <span className="err">{errors.name}</span>}
                      <Components.Input className='sign-Input' type='email' name="email" placeholder='Email' onChange={handleChange} required/>
+                     {errors.email && <span className="err">{errors.email}</span>}
                      <Components.Input className='sign-Input' type='password' name="password" placeholder='Password' onChange={handleChange} required/>
+                     {error && <p className='err'>{error}</p>}
+                     {errors.password && <span className="err">{errors.password}</span>}
                      <Components.Button className='sign-Button'>Sign Up</Components.Button>
                  </Components.Form>
              </Components.SignUpContainer>
