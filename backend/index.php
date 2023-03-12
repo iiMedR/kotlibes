@@ -24,4 +24,6 @@ switch($method) {
             exit();
         }
 
+        $hashed_password = hashPassword($user->password);
+
 }
