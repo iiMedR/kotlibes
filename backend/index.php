@@ -34,4 +34,20 @@ switch($method) {
         $stmt->bindParam(':password', $hashed_password);
         $stmt->bindParam(':created_at', $created_at);
 
+        if ($stmt->execute()) {
+            $sql = "SELECT id, name, email, phone FROM users WHERE email = :email";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':email', $user->email);
+            $stmt->execute();
+            $user1 = $stmt->fetch(PDO::FETCH_ASSOC);
+            $response = [
+                'status'=> 1,
+                'message' => 'Record created successfully.',
+                'name' => $user1['name'],
+                'email' => $user1['email'],
+                'id' => $user1['id'],
+                'phone' => $user1['phone'],
+            ];
+        }
+        echo json_encode($response);
 }
