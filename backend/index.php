@@ -48,6 +48,9 @@ switch($method) {
                 'id' => $user1['id'],
                 'phone' => $user1['phone'],
             ];
+        } else {
+            $response = ['status'=> 0,'message' => 'Failed to create record.'];
         }
         echo json_encode($response);
 }
+
