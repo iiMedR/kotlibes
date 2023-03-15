@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as Components from './Components';
+import axios from "axios";
+import BaseURL from "./BaseURL";
 import Loader from './Loader';
 
 const Signin = () => {
@@ -32,12 +34,35 @@ const handleChange = (event) => {
 
 
       }
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    // check if there are any errors bach ida kano matdozch submit
+    const hasErrors = Object.values(errors).some(error => error !== "");
+    if (hasErrors) {
+        console.log("Please fix the errors before submitting the form.");
+        return;
+    }
+    setIsLoading(true); // Show loader when submitting
+    // send the hashed password to the server
+    try {
+        const response = await axios.post(`${BaseURL}/api/index.php`, inputs);
+        if (response.data.status === 0) {
+            setError(response.data.message);
+        } else {
+
+        }
+    } catch (error) {
+        console.log(error);
+        setError("Something went wrong, please try again later.")
+    }
+    setIsLoading(false); // Hide loader after response
+};
 
   return (
     <Components.Container className='signInUp'>
         {isLoading && <Loader />}
              <Components.SignUpContainer className='SignUpContainer' signinIn={signIn}>
-                 <Components.Form className='sign-Form signup-Form'>
+                 <Components.Form className='sign-Form signup-Form' onSubmit={handleSubmit}>
                      <Components.Title className='sign-Title'>Create Account</Components.Title>
                      <Components.Input className='sign-Input' type='text' name="name" placeholder='Name' onChange={handleChange} required/>
                      {errors.name && <span className="err">{errors.name}</span>}
