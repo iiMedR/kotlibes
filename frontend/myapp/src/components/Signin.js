@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import * as Components from './Components';
 import axios from "axios";
 import BaseURL from "./BaseURL";
+import secureLocalStorage from "react-secure-storage";
 import Loader from './Loader';
 
 const Signin = () => {
@@ -53,6 +54,10 @@ const handleSubmit = async (event) => {
             setErrors("")
             console.log("Record created successfully.");
 
+            secureLocalStorage.setItem('n', response.data.name);
+            secureLocalStorage.setItem('e', response.data.email);
+            secureLocalStorage.setItem('i', response.data.id);
+            secureLocalStorage.setItem('p', response.data.phone);//ida makhdmatch msha
 
         }
     } catch (error) {
