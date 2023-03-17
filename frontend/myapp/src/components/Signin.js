@@ -49,6 +49,10 @@ const handleSubmit = async (event) => {
         if (response.data.status === 0) {
             setError(response.data.message);
         } else {
+            setError("");
+            setErrors("")
+            console.log("Record created successfully.");
+
 
         }
     } catch (error) {
