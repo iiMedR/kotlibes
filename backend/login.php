@@ -11,4 +11,10 @@ switch ($method) {
         $email = $user->email1;
         $password = $user->password1;
 
+        $query1 = "SELECT * FROM users WHERE email = :email";
+        $stmt = $conn->prepare($query1);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $user1 = $stmt->fetch(PDO::FETCH_ASSOC);
+
 }
