@@ -17,4 +17,8 @@ switch ($method) {
         $stmt->execute();
         $user1 = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        if ($user1) {
+            if (verifyPassword($password, $user1['password'])) {
+            }
+        }
 }
