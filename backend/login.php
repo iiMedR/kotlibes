@@ -19,6 +19,14 @@ switch ($method) {
 
         if ($user1) {
             if (verifyPassword($password, $user1['password'])) {
+            } else {
+                // Password is incorrect, return failure
+                $response = ['status' => 1, 'message' => 'Incorrect email or password'];
             }
+        } else {
+            // Email doesn't exist, return failure
+            $response = ['status' => 1, 'message' => 'Incorrect email or password'];
         }
+
+        echo json_encode($response);
 }
