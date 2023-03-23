@@ -19,6 +19,17 @@ switch ($method) {
 
         if ($user1) {
             if (verifyPassword($password, $user1['password'])) {
+                // Prepare response
+                $response = [
+                    'status' => 0,
+                    'message' => 'Authentication successful',
+                    'name' => $user1['name'],
+                    'email' => $user1['email'],
+                    'id' => $user1['id'],
+                    'phone' => $user1['phone'],
+                    'tokens' => $user1['tokens'],
+                    'plan' => $user1['status'],
+                ];
             } else {
                 // Password is incorrect, return failure
                 $response = ['status' => 1, 'message' => 'Incorrect email or password'];
