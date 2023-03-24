@@ -94,6 +94,26 @@ const handleChangee = (event) => {
         
 
 }
+const handleSubmit1 = async (event) => {
+    event.preventDefault();
+//check if there is an error 
+    const hasErrorss = Object.values(errorss).some(error => error !== "");
+    if (hasErrorss) {
+        console.log("Please fix the errors before submitting the form.");
+        return;
+    }
+    setIsLoading(true); // Show loader when submitting
+    //console.log(inputss)    
+    try {
+        const response = await axios.post(`${BaseURL}/api/login.php`, inputss);
+        //console.log(response.data);
+
+    } catch (error) {
+        console.log(error);
+        setError("Something went wrong, please try again later.")
+    }
+    setIsLoading(false); // Hide loader after response
+};
 
   return (
     <Components.Container className='signInUp'>
@@ -113,7 +133,7 @@ const handleChangee = (event) => {
              </Components.SignUpContainer>
 
              <Components.SignInContainer className='SignInContainer' signinIn={signIn}>
-                  <Components.Form className='sign-Form signin-Form'>
+                  <Components.Form className='sign-Form signin-Form' onSubmit={handleSubmit1}>
                       <Components.Title className='sign-Title'>Sign in</Components.Title>
                       <Components.Input className='sign-Input' type='email' placeholder='Email' name="email1" onChange={handleChangee} required/>
                       {errorss.email1 && <span className="err">{errorss.email1}</span>}
