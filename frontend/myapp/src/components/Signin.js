@@ -107,7 +107,11 @@ const handleSubmit1 = async (event) => {
     try {
         const response = await axios.post(`${BaseURL}/api/login.php`, inputss);
         //console.log(response.data);
-
+        if (response.data.status === 0) {
+            console.log(response.data.message);
+        } else {
+            console.log(response.data.message);
+        }
     } catch (error) {
         console.log(error);
         setError("Something went wrong, please try again later.")
