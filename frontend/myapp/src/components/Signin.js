@@ -3,6 +3,7 @@ import * as Components from './Components';
 import axios from "axios";
 import BaseURL from "./BaseURL";
 import secureLocalStorage from "react-secure-storage";
+import {useNavigate} from "react-router-dom";
 import Loader from './Loader';
 
 const Signin = () => {
@@ -109,6 +110,13 @@ const handleSubmit1 = async (event) => {
         //console.log(response.data);
         if (response.data.status === 0) {
             console.log(response.data.message);
+            secureLocalStorage.setItem('n', response.data.name);
+            secureLocalStorage.setItem('e', response.data.email);
+            secureLocalStorage.setItem('i', response.data.id);
+            secureLocalStorage.setItem('p', response.data.phone);
+            secureLocalStorage.setItem('t', response.data.tokens);
+            secureLocalStorage.setItem('au', "True");
+            history("/dashboard");
         } else {
             console.log(response.data.message);
         }
@@ -118,6 +126,16 @@ const handleSubmit1 = async (event) => {
     }
     setIsLoading(false); // Hide loader after response
 };
+const history = useNavigate();
+const [auth, setAuth] = useState('');
+const history1 = useNavigate();
+useEffect(() => {
+    var auth = secureLocalStorage.getItem('au');
+    setAuth(auth);
+}, []);
+if (auth){
+    history1(`/dashboard`);
+}
 
   return (
     <Components.Container className='signInUp'>
