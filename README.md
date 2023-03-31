@@ -1,6 +1,6 @@
 # Kotlibes
 
-Kotlibes is a planned AI marketing application for small and medium businesses, developed as a student final-year project (projet de fin dâ€™Ã©tude).
+Kotlibes is a planned AI marketing application for small and medium businesses, developed as a student final-year project (projet de fin dÃ¢â‚¬â„¢ÃƒÂ©tude).
 
 ## Planned architecture
 
@@ -26,4 +26,8 @@ Frontend commands and configuration are documented in `frontend/myapp/README.md`
 
 ## Phase 2 status
 
-The users schema, PDO connection class with credential placeholders, bcrypt password helpers and frontend backend-address configuration are present. Registration/login and later tables remain planned. Local setup and preserved source limitations are documented in `backend/README.md`.
+The users schema, PDO connection class with credential placeholders, bcrypt password helpers and frontend backend-address configuration are present. Registration/login are introduced in Phase 3; later tables remain planned. Local setup and preserved source limitations are documented in `backend/README.md`.
+
+## Phase 3 status
+
+The /login page now stages supplied signup/login forms, validation, requests and browser account state. Registration and account-only login endpoints are included. Billing, recovery, shared navigation and dashboard implementation remain deferred. Dashboard redirects currently have no destination route. Successful registration stays on the form until checkout is introduced. Runtime verification limitations and source adjustments are in RECONSTRUCTION.md.

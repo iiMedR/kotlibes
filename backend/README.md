@@ -1,6 +1,6 @@
 # Backend and database foundation
 
-This milestone introduces connection and password helpers only. Registration and login endpoints are deferred to Phase 3; no backend request handler is runnable yet.
+Phase 3 introduces the supplied registration handler and an account-only login handler. Subscription integration is deferred to Phase 9. Runtime checks require a configured disposable local database and PHP/PDO environment.
 
 ## Local configuration
 
