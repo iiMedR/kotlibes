@@ -136,6 +136,13 @@ useEffect(() => {
 if (auth){
     history1(`/dashboard`);
 }
+useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const signUpParam = urlParams.get('signup');
+    if (signUpParam === 'true') {
+        toggle(false);
+    }
+}, []);
 
   return (
     <Components.Container className='signInUp'>
