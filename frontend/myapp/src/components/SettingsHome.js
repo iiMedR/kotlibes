@@ -28,6 +28,24 @@
     return (
       <>
         <div className='settingsHome'>
+          <form>
+            <Card className='PInfoContainer'>
+              <Card.Header className='ttl'>
+                <h1>⚙️ Profile Settings</h1>
+              </Card.Header>
+              <div className='PInfoInputs'>
+                <TextField label='Full Name:' className='txt' name='fullName' value={fullName} onChange={handleFullNameChange} required />
+              </div>
+              <div className='PInfoInputs'>
+                <TextField label='Email:' className='txt' name='email' value={email} onChange={handleEmailChange} disabled />
+              </div>
+              <div className='PInfoInputs'>
+                <TextField label='Phone:' className='txt' name='phone' value={phone} onChange={handlePhoneChange} required />
+              </div>
+              <button className='updateButton'>SAVE</button>
+            </Card>
+          </form>
+
         </div>
       </>
     );
