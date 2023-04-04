@@ -19,5 +19,25 @@ switch($method){
             }
 
 
+            $sql = "UPDATE users SET name=:name, phone=:phone WHERE id=:id";
+            $stmt = $cnx->prepare($sql);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':id', $user_id);
+            if ($stmt->execute()) {
+                $response = ['status' => 0, 'message' => 'User information updated successfully'];
+                echo json_encode($response);
+            } else {
+                $response = ['status' => 1, 'message' => 'error'];
+                echo json_encode($response);
+            }
+
+
         }
+        /****************************************************************************************** */
+
+
+
+
+
 ?>
