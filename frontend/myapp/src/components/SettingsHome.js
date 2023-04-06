@@ -25,10 +25,25 @@
       setPhone(event.target.value);
     };
 
+    const handleSaveClick = async (e) => {
+      e.preventDefault();
+      const id = secureLocalStorage.getItem('i');
+      try {
+        const response = await axios.post(`${BaseURL}/api/update.php`, {
+          Id: id,
+          FullName: fullName,
+          Email: email,
+          Phone: phone,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     return (
       <>
         <div className='settingsHome'>
-          <form>
+          <form onSubmit={handleSaveClick}>
             <Card className='PInfoContainer'>
               <Card.Header className='ttl'>
                 <h1>⚙️ Profile Settings</h1>
