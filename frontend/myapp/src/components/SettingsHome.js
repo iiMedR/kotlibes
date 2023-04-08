@@ -35,6 +35,15 @@
           Email: email,
           Phone: phone,
         });
+        if (response.data.status === 0) {
+          console.log(response.data.message);
+          setMessage(response.data.message);
+          setStatus(response.data.status);
+        } else {
+          console.log(response.data.message);
+          setMessage(response.data.message);
+          setStatus(response.data.status);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -58,6 +67,24 @@
                 <TextField label='Phone:' className='txt' name='phone' value={phone} onChange={handlePhoneChange} required />
               </div>
               <button className='updateButton'>SAVE</button>
+              <Snackbar
+                open={status === 0}
+                autoHideDuration={2000}
+                onClose={() => setStatus('')}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+              >
+                <Alert severity='success' sx={{ width: '100%', fontSize: '18px' }}>
+                  {message}
+                </Alert>
+              </Snackbar>
+              <Snackbar
+                open={status === 1}
+                autoHideDuration={2000}
+                onClose={() => setStatus('')}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+              >
+                <Alert severity='error'>{message}</Alert>
+              </Snackbar>
             </Card>
           </form>
 
