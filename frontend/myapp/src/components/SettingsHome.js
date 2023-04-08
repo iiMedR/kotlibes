@@ -39,6 +39,12 @@
           console.log(response.data.message);
           setMessage(response.data.message);
           setStatus(response.data.status);
+          secureLocalStorage.setItem('n', fullName);
+          secureLocalStorage.setItem('e', email);
+          secureLocalStorage.setItem('p', phone);
+          setTimeout(() => {
+            window.location.reload(); // Reload the page
+          }, 3000); // Wait for 3 seconds before reloading
         } else {
           console.log(response.data.message);
           setMessage(response.data.message);
