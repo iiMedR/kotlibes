@@ -55,6 +55,22 @@
       }
     };
 
+    const [currentPassword, setCurrentPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const handleCurrentPasswordChange = (event) => {
+      setCurrentPassword(event.target.value);
+    };
+
+    const handleNewPasswordChange = (event) => {
+      setNewPassword(event.target.value);
+    };
+
+    const handleConfirmPasswordChange = (event) => {
+      setConfirmPassword(event.target.value);
+    };
+
     return (
       <>
         <div className='settingsHome'>
@@ -94,7 +110,30 @@
             </Card>
           </form>
 
-        </div>
+          <form>
+            <Card className='SInfoContainer'>
+              <Card.Header className='ttl'>
+                <h1>🔒 Security Settings</h1>
+              </Card.Header>
+              <div className='SInfoInputs'>
+                <TextField label='Current password' className='txt' name='currentPass' type='password' onChange={handleCurrentPasswordChange} />
+              </div>
+              <div className='SInfoInputs'>
+                <TextField label='New password' className='txt' name='newPass' type='password' onChange={handleNewPasswordChange} />
+              </div>
+              <div className='SInfoInputs'>
+                <TextField
+                  label='Confirm new password'
+                  className='txt'
+                  name='confirmPass'
+                  type='password'
+                  onChange={handleConfirmPasswordChange}
+                 
+                />
+              </div>
+              <button className='updateButton'>CHANGE PASSWORD</button>
+            </Card>
+          </form>        </div>
       </>
     );
   }
