@@ -71,6 +71,33 @@
       setConfirmPassword(event.target.value);
     };
 
+    const handleClick = async (e) => {
+      e.preventDefault();
+      const id = secureLocalStorage.getItem('i');
+      try {
+        const response = await axios.post(`${BaseURL}/api/updatePassword.php`, {
+          Id: id,
+          currentPass: currentPassword,
+          newPass: newPassword,
+          confirmPass: confirmPassword,
+        });
+        if (response.data.status === 0) {
+          console.log(response.data.message);
+          setMessage(response.data.message);
+          setStatus(response.data.status);
+          setTimeout(() => {
+            window.location.reload(); // Reload the page
+          }, 3000); // Wait for 3 seconds before reloading
+        } else {
+          console.log(response.data.message);
+          setMessage(response.data.message);
+          setStatus(response.data.status);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     return (
       <>
         <div className='settingsHome'>
@@ -110,7 +137,7 @@
             </Card>
           </form>
 
-          <form>
+          <form onSubmit={handleClick}>
             <Card className='SInfoContainer'>
               <Card.Header className='ttl'>
                 <h1>🔒 Security Settings</h1>
