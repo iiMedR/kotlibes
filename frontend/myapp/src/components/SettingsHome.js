@@ -116,10 +116,10 @@
                 <h1>🔒 Security Settings</h1>
               </Card.Header>
               <div className='SInfoInputs'>
-                <TextField label='Current password' className='txt' name='currentPass' type='password' onChange={handleCurrentPasswordChange} />
+                <TextField label='Current password' className='txt' name='currentPass' type='password' onChange={handleCurrentPasswordChange} required />
               </div>
               <div className='SInfoInputs'>
-                <TextField label='New password' className='txt' name='newPass' type='password' onChange={handleNewPasswordChange} />
+                <TextField label='New password' className='txt' name='newPass' type='password' onChange={handleNewPasswordChange} required />
               </div>
               <div className='SInfoInputs'>
                 <TextField
@@ -128,7 +128,7 @@
                   name='confirmPass'
                   type='password'
                   onChange={handleConfirmPasswordChange}
-                 
+                  required
                 />
               </div>
               <button className='updateButton'>CHANGE PASSWORD</button>
