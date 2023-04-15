@@ -52,5 +52,12 @@ switch ($method) {
     $stmt->bindParam(':password', $newPasswordHashed);
     $stmt->bindParam(':id', $user_id);
 
+    if ($stmt->execute()) {
+      $response = ['status' => 0, 'message' => 'Password updated successfully'];
+      echo json_encode($response);
+    } else {
+      $response = ['status' => 1, 'message' => 'Error updating password'];
+      echo json_encode($response);
+    }
 }
 ?>
