@@ -47,5 +47,10 @@ switch ($method) {
     }
     /*************************************************************************************************************************/
 
+    $sql = "UPDATE users SET password = :password WHERE id = :id";
+    $stmt = $cnx->prepare($sql);
+    $stmt->bindParam(':password', $newPasswordHashed);
+    $stmt->bindParam(':id', $user_id);
+
 }
 ?>
