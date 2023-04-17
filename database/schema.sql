@@ -35,6 +35,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `resetpassword`;
+CREATE TABLE IF NOT EXISTS `resetpassword` (
+  `token_id` int(11) NOT NULL AUTO_INCREMENT,
+  `token` varchar(50) DEFAULT NULL,
+  `expiration_date` datetime DEFAULT NULL,
+  `id` int(11) DEFAULT NULL,
+  `is_used` tinyint(1) NOT NULL,
+  PRIMARY KEY (`token_id`),
+  KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
