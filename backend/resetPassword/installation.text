@@ -1,0 +1,2 @@
+install phpmailer (hada hwa li aysared email n smtp d sendinblue)
+composer require phpmailer/phpmailer
