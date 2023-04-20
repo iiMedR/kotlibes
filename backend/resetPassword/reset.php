@@ -32,6 +32,21 @@ switch($method) {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result) {
 
+            $verificationToken = bin2hex(random_bytes(16));
+            $expiration = date('Y-m-d H:i:s', strtotime('+10 minutes'));
+            //echo($verificationToken); echo($expiration);
+            $requet = "INSERT INTO resetpassword(token_id , token , expiration_date , id,is_used) VALUES (null,:token,:expiration_date,:id,0)";
+            $stmt1 = $conn->prepare($requet);
+            $stmt1->bindParam(':token', $verificationToken);
+            $stmt1->bindParam(':expiration_date', $expiration);
+            $id = $result['id'];
+            $stmt1->bindParam(':id', $id);
+            if($stmt1->execute()){
+                //$response = "good";
+                //echo json_encode($response);
+                $response = ['status' => 0, 'message' => 'Message has been sent, check Your email inbox !.'];
+
+            }
         }else{
             $response = ['status' => 1, 'message' => 'did not find this email'];
             echo json_encode($response);
