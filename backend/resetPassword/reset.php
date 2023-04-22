@@ -59,11 +59,32 @@ switch($method) {
                     $mail->SMTPSecure = 'tls';                                  //Enable implicit TLS encryption
                     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         
+                    $mail->setFrom('EMAIL', 'Mohamed');
+                    $mail->addAddress($email);
+        
+                    $mail->isHTML(true);                                        //Set email format to HTML
+                    $mail->Subject = 'Reset Your Password';
+                    $verificationLink = 'https://kotlibes.com/changepassword';
+                    $mail->Body    = '<p>Please click on the following link to verify your email address:</p><p><a href="https://kotlibes.com/changepassword?code='.$verificationToken.'&id='.$id.'&exp='.$expiration.'">' . $verificationLink . '</a></p>';
+                    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                
+                    if($mail->send()){
+                        //echo 'Message has been sent';
+                        //$response = ['status' => 0, 'message' => 'Message has been sent'];
+                        echo json_encode($response);
+                    } else {
+                        // Failed to send email
+                        $response = ['status' => 1, 'message' => 'Failed to send email'];
+                        echo json_encode($response);
+                    }
                 } catch (Exception $e) {
                     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
         
+                //$conn->close();
+
             }
+
         }else{
             $response = ['status' => 1, 'message' => 'did not find this email'];
             echo json_encode($response);
