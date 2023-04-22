@@ -46,6 +46,23 @@ switch($method) {
                 //echo json_encode($response);
                 $response = ['status' => 0, 'message' => 'Message has been sent, check Your email inbox !.'];
 
+                $mail = new PHPMailer(true);
+                try{
+                    //Server settings
+                    //echo ('smtp dkhel ***********'.$email.'****************');
+                    $mail->SMTPDebug = 0;                                       //Enable verbose debug output
+                    $mail->isSMTP();                                            //Send using SMTP
+                    $mail->Host       = 'smtp-relay.sendinblue.com';            //Set the SMTP server to send through
+                    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                    $mail->Username   = 'REPLACE_WITH_YOUR_VALUE';                   //SMTP username
+                    $mail->Password   = 'REPLACE_WITH_YOUR_VALUE';                     //SMTP password
+                    $mail->SMTPSecure = 'tls';                                  //Enable implicit TLS encryption
+                    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        
+                } catch (Exception $e) {
+                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                }
+        
             }
         }else{
             $response = ['status' => 1, 'message' => 'did not find this email'];
