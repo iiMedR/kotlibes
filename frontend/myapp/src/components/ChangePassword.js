@@ -38,7 +38,68 @@ function ChangePassword() {
     }, [isExpired, expiration, token, id, inputs]);
   
 
-    return null;
+    const handleChange = (event) => {
+      const name = event.target.name;
+      const value = event.target.value;
+      setInputs({ ...inputs, [name]: value });
+        
+       //hadi kat compari l password m3a confirmation bach tchof wach bjoj fhal fhal
+      if (name === 'password' || name === 'confirm') {
+        const otherPassword = name === 'password' ? inputs.confirm : inputs.password;
+        setPasswordsMatch(value === otherPassword);
+      }
+    };
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+  
+      try {
+        const response = await axios.post(`${BaseURL}/api/resetPassword/change.php`, inputs);
+        if (response.data.status === 0) {
+          setError(response.data.message);
+        } else {
+          setError('');
+          console.log('password changed.');
+          window.location.href = '/login';
+        }
+      } catch (error) {
+        console.log(error);
+        setError('Something went wrong, please try again later.');
+      }
+    };
+  
+  if(isExpired === false){
+    return (
+      <>
+        <div>
+          <div className='changeContainer'>
+            <form className='changeForm' onSubmit={handleSubmit}>
+              <h4>Input Your New Password</h4>
+              <input type='password' placeholder='password' name='password' required onChange={handleChange}></input>
+              <input type='password' placeholder='confirm password' name='confirm' required onChange={handleChange}></input>
+              {!passwordsMatch && <p >Passwords do not match</p>}
+              <button disabled={!passwordsMatch}>change password</button>
+            </form>
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div>
+          <div className='changeContainerExpired'>
+            <form className='changeFormExpired'>
+              <div className='h4cnt'>
+                  <h4>Link is expired :') </h4>
+                  <h4>Try again later</h4>
+              </div>
+            </form>
+          </div>
+        </div>
+      </>
+    );
+  }
 }
 
 export default ChangePassword;
