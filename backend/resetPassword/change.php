@@ -56,6 +56,12 @@ switch($method) {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
+        //make the link expired by change the state of the link in the table
+        $sql = "UPDATE resetpassword SET is_used = 1 WHERE token = :token";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':token', $token);
+        $stmt->execute();
+
         $response = ['status' => 1, 'message' => 'Success: Password updated.'];
         echo json_encode($response);
 }
