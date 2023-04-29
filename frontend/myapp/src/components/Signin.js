@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'
 import * as Components from './Components';
 import axios from "axios";
@@ -168,6 +169,7 @@ useEffect(() => {
                       {errorss.email1 && <span className="err">{errorss.email1}</span>}
                       <Components.Input className='sign-Input' type='password' placeholder='Password' name="password1" onChange={handleChangee}required/>
                       {errorss.password1 && <span className="err">{errorss.password1}</span>}
+                      <Link to='/reset-password' className='sign-frgt-link'>Forgot your password?</Link>
                       <Components.Button className='sign-Button'>Sigin In</Components.Button>
                   </Components.Form>
              </Components.SignInContainer>

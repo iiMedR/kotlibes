@@ -2,6 +2,9 @@ import './App.css';
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/LoginPage';
+import Settings from './Pages/Settings';
+import ResetPassword from './components/ResetPassword';
+import ChangePassword from './components/ChangePassword';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 class App extends Component {
@@ -10,6 +13,9 @@ class App extends Component {
         <Router>
           <Routes>
             <Route path="/login" element={<Login/>} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/changepassword" element={<ChangePassword />} />
           </Routes>
         </Router>
     );

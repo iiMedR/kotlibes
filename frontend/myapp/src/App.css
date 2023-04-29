@@ -325,3 +325,418 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+/**********************Settings home ****************************/
+
+@media screen and (max-width: 992px) {
+
+  .settingsHome{
+    width: 100% !important;
+    position: inherit !important;
+  } 
+
+  .PInfoContainer {
+    width: 90% !important;
+    margin: 50px auto !important; /* Center align for mobile */
+    padding-bottom: 20px !important;
+  }
+
+  .PInfoInputs .txt {
+    width: 70vw !important; /* Full width for mobile */
+  }
+
+  .SInfoContainer {
+    width: 90% !important;
+    margin: 20px auto !important; /* Center align for mobile */
+    padding-bottom: 20px !important;
+  }
+
+  .SInfoInputs .txt {
+    width: 70vw !important; /* Full width for mobile */
+  }
+
+}
+
+.settingsHome{
+  position: fixed;
+  top: 0;
+  padding-left: 15px;
+  right: 0;
+  bottom: 0;
+  width: calc(100vw - 280px);
+  overflow:auto;
+  height:100vh;
+  background-color: rgb(255, 255, 255);
+  padding-top: 25px;
+} 
+
+
+
+.PInfoContainer{
+  width: 90%;
+  padding-bottom: 20px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PInfoContainer .ttl{
+  width: 100%;
+}
+
+.PInfoInputs{
+  margin: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.PInfoInputs .txt{
+  width: calc(100vw - 500px);
+}
+
+.PInfoContainer .updateButton{
+  border-radius: 10px;
+  border: 2px solid #1e65fa !important;
+  background-color: #1e64fa00;
+  color: #1e65fa;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.PInfoContainer .updateButton:hover{
+  transition: 0.2s ease-in-out;
+  background-color: #1e65fa;
+  color: white;
+  
+  }
+
+/*************************************************/
+
+
+
+.SInfoContainer{
+  width: 90%;
+  padding-bottom: 20px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SInfoContainer .ttl{
+  width: 100%;
+}
+
+.SInfoInputs{
+  margin: 10px;
+  margin-top: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.SInfoInputs .txt{
+  width: calc(100vw - 500px);
+}
+
+.SInfoContainer .updateButton{
+  border-radius: 10px;
+  border: 2px solid #1e65fa !important;
+  background-color: #1e64fa00;
+  color: #1e65fa;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.SInfoContainer .updateButton:hover{
+  transition: 0.2s ease-in-out;
+  background-color: #1e65fa;
+  color: white;
+  
+  }
+
+  
+/*********************RESET YOUR PASSWORD********************************/
+
+
+  .resetContainer{
+    background: linear-gradient(to right, #1E65FA, #2C82FF);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 40vw;
+    max-width: 100%;
+    min-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 230px;
+    padding-top: 40px;
+    color: #6c6c6c;
+  }
+
+  .resetForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+  }
+  .resetForm input{
+    width: 80%;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+
+  .resetForm button{
+    width: 70%;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    transition: transform .2s ease-in-out; 
+    margin-bottom: 40px;
+  }
+
+  .resetForm button:hover{
+    transform: scale(1.02);
+    box-shadow: 0 14px 28px rgba(0, 0, 2, 0.05), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  /* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .resetContainer {
+    width: 90vw;
+    padding-top: 20px; /* Reduce top padding for mobile */
+  }
+
+  .resetForm {
+    padding: 0 10px; /* Reduce horizontal padding for smaller screens */
+  }
+}
+
+  /*********************change your password********************************/
+
+  
+  .changeContainer{
+    background: linear-gradient(to right, #1E65FA, #2C82FF);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 40vw;
+    max-width: 100%;
+    min-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    padding-top: 40px;
+  }
+
+  .changeForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+  }
+  .changeForm input{
+    width: 80%;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+
+  .changeForm button{
+    width: 70%;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    transition: transform .2s ease-in-out; 
+    margin-bottom: 40px;
+  }
+
+  .changeForm button:hover{
+    transform: scale(1.02);
+    box-shadow: 0 14px 28px rgba(0, 0, 2, 0.05), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+
+  .changeContainerExpired{
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 40vw;
+    max-width: 100%;
+    min-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    padding-top: 40px;
+  }
+
+  .changeFormExpired{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+  }
+  .changeFormExpired .h4cnt{
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+    /* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .changeContainer {
+    width: 90vw;
+    padding-top: 20px; /* Reduce top padding for mobile */
+  }
+
+  .changeForm {
+    padding: 0 10px; /* Reduce horizontal padding for smaller screens */
+  }
+}
+
+
+.sign-frgt-link{ /*this is for forgot password */
+color: #333;
+font-size: 14px;
+text-decoration: none;
+margin: 15px 0;
+}
+/************************(side bar) hada dyal dashboard*/
+
+@media screen and (max-width: 992px) {
+  .logo-sidebar{
+    display: none !important;
+  }
+  
+
+}
+
+
+
+.side-bar{
+  height: 100vh;
+  width: 280px;
+  background-color:#1e59fa;
+  z-index: 999;
+  position: fixed;
+} 
+
+.sidebarList{
+  width: 100%;
+  height: 100%;
+  /*padding-top: 25px;*/
+  padding: 0;
+  padding-top: 15px;
+
+}
+
+.sidebarList .row{
+  width: 90%;
+  height: 50px;
+  align-items: center;
+  /*padding-top: 10px;*/
+  /*border: 1px solid black;*/
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-left: 14px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  font-family: Centra;
+  color: aliceblue;
+  
+}
+/*
+.sidebarList .row{
+  width: 100%;
+  height: 50px;
+  list-style-type: none;
+  margin: 0%;
+  display: flex;
+  flex-direction: row;
+  color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  
+}*/
+
+.sidebarList .row:hover{
+  cursor: pointer;
+  background-color: #184fe5;
+}
+
+.row #icon{
+  flex: 30%;
+  display: grid;
+  place-items: center;
+}
+
+.row #tit{
+  flex: 70%;
+}
+
+.sidebarList #active{
+  background-color:aliceblue;
+  color: #1E5AFA;
+  box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.355);
+}
+
+.logo-sidebar{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 50px;
+  margin-top: 20px;
+
+}
+
+.logo-sidebar:hover{
+  cursor:pointer;
+}
+
+#sidebare-link{
+  text-decoration: none;
+}
+
+
+
+
