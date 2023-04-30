@@ -31,3 +31,7 @@ The users schema, PDO connection class with credential placeholders, bcrypt pass
 ## Phase 3 status
 
 The /login page now stages supplied signup/login forms, validation, requests and browser account state. Registration and account-only login endpoints are included. Billing, recovery, shared navigation and dashboard implementation remain deferred. Dashboard redirects currently have no destination route. Successful registration stays on the form until checkout is introduced. Runtime verification limitations and source adjustments are in RECONSTRUCTION.md.
+
+## Phase 4 status
+
+/settings, /reset-password and /changepassword introduce supplied profile management, settings password changes and recovery. Email remains read-only in settings. The account sidebar links only to settings; dashboard/tools/billing remain deferred. Recovery is a preserved historical implementation with documented expiry, token ownership and reuse enforcement gaps; see RECONSTRUCTION.md for source provenance and actual checks.

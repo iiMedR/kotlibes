@@ -21,3 +21,7 @@ frontend/myapp/src/components/BaseURL.js exports the literal http://localhost:80
 The supplied registration handler reads name, email and password, inserts id/name/email/password/created_at and reads back id/name/email/phone. The supplied login handler reads email1/password1 and accesses users id/name/email/password/phone/tokens/status. Its subscription queries and response fields require Phase 9 data and remain deferred. The users schema additionally retains updated_at.
 
 The supplied users table retains MyISAM and latin1, the unusual quoted inactive status default, nullable phone, default token balance 0, and current_timestamp defaults for both timestamps. No unique email index, foreign keys, seed data, or automatic updated_at behavior is invented.
+
+## Phase 4 setup and limits
+
+Account-update and recovery endpoints are now included. The resetpassword table is source-derived; review destructive DROP statements before using a disposable test database. Install the supplied Composer lock in backend/resetPassword to provide vendor/autoload.php, and configure private SMTP credentials and a test sender. SMTP username/password are placeholders. Recovery links retain the supplied https://kotlibes.com/changepassword address. No reset emails were sent during reconstruction. Stored expiry and is_used values are not enforced by the backend, and token ownership is not tied to the requested user ID. These preserved behaviors are documented in RECONSTRUCTION.md.
