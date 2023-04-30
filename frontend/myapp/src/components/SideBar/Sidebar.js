@@ -1,3 +1,53 @@
+/*import React from 'react'
+import "../../App.css";
+import { SidebarData } from './SidebarData';
+//import { SidebarDataD } from './SidebarDataD';
+import logo from '../../assets/img/logo.png';
+import { Link } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import secureLocalStorage from 'react-secure-storage';
+
+
+function Sidebar() {
+
+  const logOut = () => {
+    secureLocalStorage.removeItem('n');
+    secureLocalStorage.removeItem('e');
+    secureLocalStorage.removeItem('au');
+    secureLocalStorage.removeItem('i');
+  }
+
+  return (
+    <div className="side-bar">
+    <ul className='sidebarList'>
+    <Link to="/">
+      <img className='logo-sidebar' src={logo} alt="Logo" />
+      </Link>
+      {SidebarData.map((val, key)=>{
+        return(
+          <Link to={val.link} id="sidebare-link">
+          <li className='row' key={key} id={window.location.pathname === val.link ? "active" : ""} >
+              <div id='icon'>{val.icon}</div>  <div id='tit'>{val.title}</div>
+          </li>
+          </Link>
+        )
+      })}
+      <div className='sidebarDown'>
+            <Link to="/" id="sidebare-link">
+            <li className='row' id={window.location.pathname === "/" ? "active" : ""} onClick={logOut} >
+                <div id='icon'><LogoutIcon /></div>  <div id='tit'>Logout</div>
+            </li>
+            </Link>
+      </div>  
+      </ul>
+    </div>
+  )
+} 
+
+export default Sidebar
+
+*/
+
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -83,3 +133,71 @@ function ResponsiveExample() {
 export default ResponsiveExample;
 
 
+
+/*
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import React from 'react'
+import "../../App.css";
+import { SidebarData } from './SidebarData';
+import logo from '../../assets/img/logo.png';
+import { Link } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import secureLocalStorage from 'react-secure-storage';
+
+
+function Example() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const logOut = () => {
+    secureLocalStorage.removeItem('n');
+    secureLocalStorage.removeItem('e');
+    secureLocalStorage.removeItem('au');
+    secureLocalStorage.removeItem('i');
+  }
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        Launch
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose} style={{ backgroundColor: '#1e59fa', width: '270px' }}>
+        <Offcanvas.Header >
+          <Offcanvas.Title>
+            <Link to="/">
+              <img className='logo-sidebar' src={logo} alt="Logo" />
+            </Link>
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body style={{ overflow: 'hidden' }}>
+          <ul className='sidebarList'>
+            {SidebarData.map((val, key)=>{
+              return(
+                <Link to={val.link} id="sidebare-link">
+                <li className='row' key={key} id={window.location.pathname === val.link ? "active" : ""} >
+                    <div id='icon'>{val.icon}</div>  <div id='tit'>{val.title}</div>
+                </li>
+                </Link>
+              )
+            })}
+            <div className='sidebarDown'>
+                  <Link to="/" id="sidebare-link">
+                  <li className='row' id={window.location.pathname === "/" ? "active" : ""} onClick={logOut} >
+                      <div id='icon'><LogoutIcon /></div>  <div id='tit'>Logout</div>
+                  </li>
+                  </Link>
+            </div>  
+          </ul>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
+}
+
+export default Example;
+*/
