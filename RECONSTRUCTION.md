@@ -115,3 +115,17 @@ Frontend build entry invocation failed with MODULE_NOT_FOUND because react-scrip
 No disposable configured database or test email setup is available. Profile/password updates, recovery requests, valid/expired links and token reuse were not exercised. No existing database was imported and no emails were sent. Intermediate staging is not claimed independently functional. Runtime configuration, PHP/PDO, Composer vendor and frontend dependencies remain outstanding.
 
 Schedule: 29 nonempty commits across 18 active April days, at most two per day (limit seven), chronological matching author and committer dates after March. Normal push only; no May work is introduced.
+
+## Phase 5: May 1–June 15, 2023 — Buyer Persona and USP generators
+
+The supplied strategic generators are staged as code changes on main in iiMedR/kotlibes. Dates remain assigned UTC reconstruction dates with the configured identity. Phases 1–4 and the original source snapshots remain preserved.
+
+OpenAI ^3.1.0, Configuration/OpenAIApi, text-davinci-003 and the supplied completion prompts/settings are retained; no model, SDK or architecture upgrade is made. The code reads REACT_APP_API_KEY, not an embedded credential. No key is committed or paid request made. Client environment-variable configuration remains the supplied design; no secret-handling redesign is claimed.
+
+Usage recording blocks and their axios/BaseURL imports are temporarily omitted from BuyerP and USP until Phase 8 provides incrementUsage.php. The snapshot retains these exact blocks for restoration (tool IDs 32 and 33). No new cross-tool profile persistence or automatic result transfer is added.
+
+Existing Loader and UI dependencies are reused. The redundant May 2 loader commit is omitted. State and change handling are introduced together. Inline prompt/request construction is kept together rather than split artificially. Example data/control wiring is introduced together. USP uses the same tool styles already introduced for Buyer Persona, so its redundant June 14 styles commit is omitted. No documentation-only completion commit is created.
+
+The buyer guard accepts only trial. The USP guard combines not-equal checks with OR, which rejects every possible status; its render button independently allows only trial. Both retain browser-stored pl status checks, not complete subscription enforcement. Phase 3 deferred pl storage until billing; generation availability is therefore incomplete at this milestone. Supplied page auth redirects run during render before the mount effect loads au; this behavior is retained.
+
+The USP products/services field retains name=businessName despite binding its value to businessProduct. Motivation and values share the supplied buyerMotivation field; there is no extra invented values field. Both use the original text timer with interval clearing on restart, example reset and completion. Neither implements componentWillUnmount cleanup; no such guarantee or new behavior is added.
