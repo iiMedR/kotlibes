@@ -13,6 +13,7 @@ class BuyerP extends Component {
   render() {
     return (
       <div>
+        <NavbarTool />
         <div className="inputOutput">
           <form className="inputs-tool">
           </form>
