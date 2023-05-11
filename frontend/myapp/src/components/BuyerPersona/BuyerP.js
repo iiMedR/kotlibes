@@ -107,6 +107,40 @@ class BuyerP extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <TextField
+              fullWidth
+              value={this.state.lowestIncome}
+              label="Your Market Lowest Income per Month (Hard Life)"
+              id="fullWidth"
+              name="lowestIncome"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.normalIncome}
+              label="Your Market Normal Income per Month (Good Life)"
+              multiline
+              maxRows={4}
+              id="fullWidth"
+              name="normalIncome"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.luxuryIncome}
+              label="Your Market Best Income per Month (Luxury Life)"
+              multiline
+              maxRows={4}
+              id="fullWidth"
+              name="luxuryIncome"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
