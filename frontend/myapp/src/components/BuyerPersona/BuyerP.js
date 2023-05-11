@@ -96,6 +96,17 @@ class BuyerP extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <h4>ABOUT MARKET</h4>
+            <TextField
+              fullWidth
+              value={this.state.marketLocation}
+              label="Your Market Location"
+              id="fullWidth"
+              name="marketLocation"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
