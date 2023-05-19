@@ -79,6 +79,18 @@ class BuyerP extends Component {
         presence_penalty: 0,
       });
 
+      const responseText = response.data.choices[0].text;
+
+      this.setState({
+        heading: `Buyer Persona suggestion for your ${businessName}`,
+        response1: responseText,
+        error: '',
+        loading: false,
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+
     } catch (error) {
       console.log(error);
     }
