@@ -99,6 +99,7 @@ class BuyerP extends Component {
   render() {
     const { loading, heading, userStatus } = this.state;
     const isAllowedToGenerate = userStatus === 'trial';
+    const responseLines = this.state.response1.split('\n');
     return (
       <div>
         <NavbarTool />
@@ -195,6 +196,7 @@ class BuyerP extends Component {
             <button type="submit" disabled={!isAllowedToGenerate}>Generate with AI</button>
           </form>
           <div className="output-tool">
+            <Card><CardContent><h4>{heading}</h4>{responseLines.map((line, index) => (<p key={index}>{line}</p>))}</CardContent></Card>
           </div>
         </div>
       </div>
