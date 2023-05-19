@@ -93,6 +93,10 @@ class BuyerP extends Component {
 
     } catch (error) {
       console.log(error);
+      this.setState({
+        error: 'An error occurred. Please try again.',
+        loading: false,
+      });
     }
   };
 
@@ -193,6 +197,7 @@ class BuyerP extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            {this.state.error && <p className="err" style={{color: 'red'}}>{this.state.error}</p>}
             <button type="submit" disabled={!isAllowedToGenerate}>Generate with AI</button>
           </form>
           <div className="output-tool">
