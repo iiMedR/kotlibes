@@ -45,6 +45,73 @@ class BuyerP extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  setValue = async (value) => {
+    if (value) {
+      this.setState({
+        value,
+        heading: 'Buyer Persona suggestion for your Eco-Friendly Cleaning Products',
+        response1: `\n Meet Celine: 
+
+        Demographics: 
+        Celine is a 25-year old single female living in Morocco. She works as a customer service representative and earns a monthly salary of 600$.  
+        
+        Interests & Hobbies: 
+        In her free time, Celine enjoys reading books about environmental sustainability, going for walks in nature, and trying out new vegan recipes with friends. She is also an avid follower of health-related Instagram pages. 
+        
+        Behaviors: 
+        Celine primarily shops online, preferring the convenience and selection that it provides. She is particular about researching products and services, and will often read reviews and research ingredients before making a purchase. She’s a great advocate for environmental causes and often shares educational content on her social media pages. 
+        
+        Goals & Aspirations: 
+        Celine’s primary goal is to be a part of environmental sustainability by living a sustainable lifestyle. She’s always on the lookout for products, services, and businesses that align with this goal. 
+        
+        Challenges & Pain Points: 
+        Celine finds it difficult to find eco-friendly cleaning products in Morocco that also fit into her budget. She is weary of the numerous chemicals and additives found in conventional cleaning products, and wishes to find an affordable non-toxic alternative.
+        
+        Motivations & Values: 
+        Celine values businesses that prioritize sustainability over profit and whose goals are aligned with her own. She is driven by her goal of environmental sustainability, and she is willing to pay more for eco-friendly products because of her focus on making conscious and informed purchasing decisions. 
+        
+        Communication Preferences: 
+        Celine is active on social media platforms, regularly reading and responding to posts that are relevant to her interests. She prefers receiving communications via email, keeping her social media accounts more personal. 
+        
+        Other Relevant Details: 
+        Celine is highly conscious of both the environment and her finances, always looking for ways to balance the two. She believes that everyone should have access to eco-friendly products and is passionate about encouraging others to make a difference, even in small ways. 
+        
+        Percentage of this kind of people in the market location:
+        Celine is part of an emerging market of people in Morocco and Spain that are passionate about living a sustainable lifestyle. This type of consumer makes up around 5-10% of the population.`,
+        businessName: 'Eco-Friendly Cleaning Products',
+        marketLocation: 'Morocco, Spain',
+        businessProduct: 'Handcrafted, Non-Toxic Cleaning Solutions',
+        productCost: '16$',
+        lowestIncome: '<200$',
+        normalIncome: '>600',
+        luxuryIncome: '>10k$',
+        USP: 'Sustainable Sourcing, Plastic-Free Packaging, Natural Ingredients',
+
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+    } else {
+      this.setState({
+        value,
+        heading: 'Your AI-Generated Persona Will Shine Right Here',
+        response1: '',
+        businessName: '',
+        marketLocation: '',
+        businessProduct: '',
+        productCost: '',
+        lowestIncome: '',
+        normalIncome: '',
+        luxuryIncome: '',
+        USP: '',
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+      clearInterval(this.state.typingEffectInterval);
+    }
+  };
+
   onFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -106,7 +173,7 @@ class BuyerP extends Component {
     const responseLines = this.state.response1.split('\n');
     return (
       <div>
-        <NavbarTool />
+        <NavbarTool setValue={this.setValue} />
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
