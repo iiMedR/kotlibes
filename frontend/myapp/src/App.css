@@ -740,3 +740,131 @@ margin: 15px 0;
 
 
 
+
+/**********************tools navbar****************************/
+
+.tool-navbar{
+  position: relative;
+  height: 160px;
+  background-color: #16399b;
+  padding-top: 15px;
+}
+
+.tool-navbar-items{
+  margin-left: 80px;
+}
+
+.tool-navbar-txt{
+  color: rgb(255, 255, 255);
+}
+
+.tool-navbar .buttons {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+.tool-navbar .buttons button {
+  width:auto;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 255, 255);
+  height: 50px;
+  width: 130px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.tool-navbar .buttons button:hover {
+  background-color: rgb(255, 255, 255);
+  color: #10111D;
+  height: 50px;
+  width: 130px;
+}
+
+.tool-navbar .tool-navbar-items .buttons button.clicked {
+  background-color: rgb(255, 255, 255);
+  color: #10111D;
+}
+
+/**********************INSTAGRAM CONTENT MARKETING css****************************/
+
+.inputs-tool{
+  width: calc((100vw - 200px)/2);
+  margin-right: 50px;
+}
+
+.inputs-tool h4{
+  margin-top: 25px;
+}
+
+.inputs-tool button{
+  margin-top: 25px;
+  height: 75px;
+  width: 35%;
+  border-radius: 10px;
+  background-color: #16399b;
+  border: 0;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  font-size: larger;
+}
+
+/*.inputs-tool button:hover{
+  background-color: #4A2FBD;
+}*/
+
+.output-tool{
+  text-align: left;
+  width: calc((100vw - 200px)/2);
+  margin-left: 50px;
+}
+
+.output-tool h4{
+  text-align: center;
+}
+
+.inputOutput{
+  display: flex;
+  margin-left: 50px;
+  margin-top: 50px;
+
+}
+
+.info{
+  width: 45vw;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.248); /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; /* Ensure the loader overlay is on top of other elements */
+}
+
+.loader1 {
+  font-size: 24px;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 4px;
+}
+ 
+
+
