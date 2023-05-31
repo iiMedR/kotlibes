@@ -74,6 +74,18 @@ class USP extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <TextField
+              fullWidth
+              value={this.state.compititorsOffers}
+              label="Your Market Compititor offers"
+              multiline
+              maxRows={6}
+              id="fullWidth"
+              name="compititorsOffers"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
