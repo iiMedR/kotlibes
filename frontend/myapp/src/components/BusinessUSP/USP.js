@@ -111,6 +111,18 @@ class USP extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <TextField
+              fullWidth
+              value={this.state.buyerGoals}
+              label="Your Buyer Goals & Aspirations"
+              multiline
+              maxRows={4}
+              id="fullWidth"
+              name="buyerGoals"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
