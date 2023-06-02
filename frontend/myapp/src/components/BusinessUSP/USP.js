@@ -86,6 +86,31 @@ class USP extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <h4>ABOUT YOUR BUYER PERSONA</h4>
+            <TextField
+              fullWidth
+              value={this.state.buyerPain}
+              label="Your Buyer Pain Points"
+              multiline
+              maxRows={5}
+              id="fullWidth"
+              name="buyerPain"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.buyerBehaviors}
+              label="Your Buyer Beheviors"
+              multiline
+              maxRows={5}
+              id="fullWidth"
+              name="buyerBehaviors"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
