@@ -45,6 +45,49 @@ class USP extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  setValue = async (value) => {
+    if (value) {
+      this.setState({
+        value,
+        heading: 'USP suggestion for your Eco-Friendly Cleaning Products',
+        response1: `\n Unique Selling Proposition (USP):
+        USP 1: Get Cleaner with Eco-Friendly Solutions- Our hand crafted, non-toxic cleaning solutions are formulated from natural and biodegradable ingredients that are safe for your home and the environment.
+        USP 2: Enjoy Convenience & Value- Our products are affordable and available online with fast and free shipping across Morocco.
+        USP 3:Feel Good about Your Purchases- Not only are our products effective and affordable, but they are also certified for their sustainability and cruelty-free practices, letting you make a difference one purchase at a time.`,
+        businessName: 'Eco-Friendly Cleaning Products',
+        businessProduct: 'Handcrafted, Non-Toxic Cleaning Solutions',
+        compititorsOffers: 'GreenClean: Offers a wide range of eco-friendly cleaning products made from natural and biodegradable ingredients. Their products are free from harsh chemicals and toxins, ensuring a safe and healthy cleaning experience. EarthSparkle: Specializes in plant-based cleaning solutions that are environmentally friendly and cruelty-free. Their products are packaged in recyclable materials and have earned certifications for their sustainability practices.',
+        buyerPain: 'Celine finds it difficult to find eco-friendly cleaning products in Morocco that also fit into her budget. She is weary of the numerous chemicals and additives found in conventional cleaning products, and wishes to find an affordable non-toxic alternative',
+        buyerBehaviors: 'Celine primarily shops online, preferring the convenience and selection that it provides. She is particular about researching products and services, and will often read reviews and research ingredients before making a purchase. She’s a great advocate for environmental causes and often shares educational content on her social media pages',
+        buyerGoals: 'Celine’s primary goal is to be a part of environmental sustainability by living a sustainable lifestyle. She’s always on the lookout for products, services, and businesses that align with this goal',
+        buyerMotivation: 'Celine values businesses that prioritize sustainability over profit and whose goals are aligned with her own. She is driven by her goal of environmental sustainability, and she is willing to pay more for eco-friendly products because of her focus on making conscious and informed purchasing decisions',
+        buyerOtherD: 'Celine is highly conscious of both the environment and her finances, always looking for ways to balance the two. She believes that everyone should have access to eco-friendly products and is passionate about encouraging others to make a difference, even in small ways',
+
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+    } else {
+      this.setState({
+        value,
+        heading: 'Your AI-Generated USP Will Shine Right Here',
+        response1: '',
+        businessName: '',
+        businessProduct: '',
+        compititorsOffers: '',
+        buyerPain: '',
+        buyerBehaviors: '',
+        buyerGoals: '',
+        buyerMotivation: '',
+        buyerOtherD: '',
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+      clearInterval(this.state.typingEffectInterval);
+    }
+  };
+
   onFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -106,7 +149,7 @@ class USP extends Component {
     const responseLines = this.state.response1.split('\n');
     return (
       <div>
-        <NavbarTool />
+        <NavbarTool setValue={this.setValue} />
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
