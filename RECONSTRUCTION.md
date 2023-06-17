@@ -139,3 +139,9 @@ Offline Node checks evaluated the actual supplied class methods with stub React 
 Frontend build unavailable: dependencies including React Scripts are not installed. No successful build or browser rendering is claimed.
 
 Result: 32 meaningful code/dependency/style commits across all 20 listed active days, at most three per day (limit seven). Author/committer timestamps match and assigned dates continue after April through June 15. No documentation-only feature or completion commit, no duplicate loader/styles commits, and no work after June 15. Usage accounting and billing/navigation limitations remain as described above.
+
+## Phase 6: June 16–July 31, 2023 — social content idea generators
+
+Assigned UTC dates remain retrospective reconstruction dates, not recovered original commits. Instagram, TikTok and LinkedIn retain supplied filenames, classes, prompts, examples, SDK/model/settings and UI. Usage calls and unused axios/BaseURL imports are deferred until Phase 8 (tool IDs 1, 2, 34); exact originals remain in the preserved source. The existing Phase 5 assembly accidentally duplicated strategic imports/routes; Phase 6 removes those duplicates without rewriting history.
+
+Shared loader, CSS and dependencies are already present and are reused; redundant styles/dependency commits are omitted. Requests and inline prompts stay together. No live trend retrieval, viral guarantee, publishing, platform accounts, scheduling or analytics are introduced. Trial-only browser account checks and render-time auth redirects remain supplied limitations. pl storage is still deferred to billing. Timers clear on restart/reset/completion, but the source has no componentWillUnmount cleanup. AI key remains REACT_APP_API_KEY; no credential or paid request is introduced.
