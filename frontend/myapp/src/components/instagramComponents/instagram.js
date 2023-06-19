@@ -45,6 +45,25 @@ class Instagram extends Component {
         <NavbarTool />
         <div className="inputOutput">
           <form className="inputs-tool">
+            <h4>ABOUT YOUR BUSINESS</h4>
+            <TextField
+              fullWidth
+              value={this.state.businessName}
+              label="Type here"
+              id="fullWidth"
+              name="businessName"
+              onChange={this.handleChange}
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.targetAudience}
+              label="Type here"
+              id="fullWidth"
+              name="targetAudience"
+              onChange={this.handleChange}
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
