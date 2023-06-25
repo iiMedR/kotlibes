@@ -52,6 +52,28 @@ class Instagram extends Component {
       return;
     }
 
+    this.setState({ loading: true });
+
+    try {
+      const configuration = new Configuration({
+        apiKey: process.env.REACT_APP_API_KEY,
+      });
+
+      const openai = new OpenAIApi(configuration);
+
+      const response = await openai.createCompletion({
+        model: 'text-davinci-003',
+        prompt: `generate instagram topics for a chocolate company \nthe audiance are the married people\n\n1. Decadent Chocolatey Date Night Ideas \n2. Chocolate Gift Ideas for Your Loved One\n3. Chocolate Recipes Perfect for Couples \n4.  Create Your Own Chocolatey Treats Together \n\ngenerate instagram topics for a graphic design company \nthe audiance are the business people\n\n1. How to Make Your Business Stand Out with Graphic Design \n2. Showcase Your Brand with Creative Graphics \n3. Tips for Effective Logo Design \n4. Utilizing Graphic Design to Strengthen Your Brand Identity \n5. Creative Ways to Showcase Your Products and Services with Graphics\n\ngenerate instagram topics for a marketing company \nthe audiance are the business people\n\n1. The Benefits of Investing in Digital Marketing \n2. Strategies for Maximizing Your Brand’s Reach \n3. Tips for Creating Engaging Content \n4. Creative Ways to Utilize Social Media for Your Business \n5. Strategies for Building an Effective Marketing Plan\n\n\ngenerate instagram topics for a restaurant\nthe audiance are the women between 18 years old and 22 years old\n\n1. Delicious Recipes Perfect for Young Women \n2. Fun Recipes for Enjoying with Friends \n3. Showcase Your Favorite Restaurant Dishes \n4. Quick and Easy Meals to Fit Your Busy Lifestyle \n5. Tips for Finding Healthy Meals on the Go\n\ngenerate instagram topics for ${businessName}\nthe audiance are ${targetAudience}\n\n`,
+        temperature: 0.71,
+        max_tokens: 256,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
