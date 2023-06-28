@@ -71,6 +71,18 @@ class Instagram extends Component {
         presence_penalty: 0,
       });
 
+      const responseText = response.data.choices[0].text;
+
+      this.setState({
+        heading: `Instagram topics suggestions for: ${businessName}`,
+        response1: responseText,
+        error: '',
+        loading: false,
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+
     } catch (error) {
       console.log(error);
     }
@@ -79,6 +91,7 @@ class Instagram extends Component {
   render() {
     const { loading, heading, userStatus } = this.state;
     const isAllowedToGenerate = userStatus === 'trial';
+    const responseLines = this.state.response1.split('\n');
     return (
       <div>
         <NavbarTool />
@@ -106,6 +119,7 @@ class Instagram extends Component {
             <button type="submit" disabled={!isAllowedToGenerate}>Generate with AI</button>
           </form>
           <div className="output-tool">
+            <Card><CardContent><h4>{heading}</h4>{responseLines.map((line, index) => (<p key={index}>{line}</p>))}</CardContent></Card>
           </div>
         </div>
       </div>
