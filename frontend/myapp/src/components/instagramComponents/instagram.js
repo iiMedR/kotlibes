@@ -37,6 +37,37 @@ class Instagram extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  setValue = async (value) => {
+    if (value) {
+      this.setState({
+        value,
+        heading: 'Instagram topics suggestions for: accounting agency',
+        response1: `\n 1. The Benefits of Working with an Accounting Agency 
+2. Tips for Maximizing Your Business Profits 
+3. Strategies for Effective Tax Planning 
+4. Understanding Business Financial Statements 
+5. Creative Ways to Streamline Bookkeeping Processes`,
+        businessName: 'accounting agency',
+        targetAudience: 'people who have a business',
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+    } else {
+      this.setState({
+        value,
+        heading: 'Your AI-Generated Ideas Will Shine Right Here',
+        response1: '... Await the response',
+        businessName: '',
+        targetAudience: '',
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+      clearInterval(this.state.typingEffectInterval);
+    }
+  };
+
   onFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -98,7 +129,7 @@ class Instagram extends Component {
     const responseLines = this.state.response1.split('\n');
     return (
       <div>
-        <NavbarTool />
+        <NavbarTool setValue={this.setValue} />
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
