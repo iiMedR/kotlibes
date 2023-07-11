@@ -54,6 +54,28 @@ class Tiktok extends Component {
       return;
     }
 
+    this.setState({ loading: true });
+
+    try {
+      const configuration = new Configuration({
+        apiKey: process.env.REACT_APP_API_KEY,
+      });
+
+      const openai = new OpenAIApi(configuration);
+
+      const response = await openai.createCompletion({
+        model: 'text-davinci-003',
+        prompt: `\n\nBusiness Description: ${businessName}\nTarget Audience: ${targetAudience}\n\nPrompt:\nGenerate 5 engaging topic ideas for TikTok content that will resonate with your target audience and have the potential to go viral. The content should be creative, entertaining, and aligned with your business. Consider trends, challenges, storytelling, or any other engaging formats that are popular on TikTok.\n\nKey considerations:\n1. Trending Challenges: Identify popular challenges on TikTok that are relevant to your business or niche. Brainstorm creative ways to participate in these challenges while incorporating your brand or products/services.\n2. Behind-the-Scenes: Share behind-the-scenes footage or processes of your business. Give your audience a glimpse into your day-to-day operations, product creation, or event preparation. This can create curiosity and humanize your brand.\n3. User-Generated Content: Encourage your audience to create and share content related to your business. This could include unboxing videos, product reviews, or creative ways to use your products/services. Engage with and feature user-generated content to foster a sense of community.\n4. Educational or How-to Videos: Share informative and educational content related to your business. Teach your audience something new, provide tips and tricks, or demonstrate DIY projects that align with your niche. This can establish you as an authority and provide value to your audience.\n5. Humorous and Entertaining Content: Create light-hearted and entertaining videos that relate to your business or industry. Incorporate humor, skits, or storytelling to captivate your audience and leave a lasting impression. Remember to keep it fun and engaging.\n\nPlease generate 5 topic ideas that are engaging, creative, and have the potential to go viral on TikTok. Consider your target audience's interests, TikTok trends, and the unique aspects of your business to create compelling content that resonates with viewers and encourages sharing and engagement.\n\n`,
+        temperature: 1,
+        max_tokens: 500,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
