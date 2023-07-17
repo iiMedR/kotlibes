@@ -39,6 +39,40 @@ class Tiktok extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  setValue = async (value) => {
+    if (value) {
+      this.setState({
+        value,
+        heading: '5 Tiktok content ideas suggestion for your Candle project',
+        response1: `\n1. DIY Candle Hacks: Create entertaining videos that demonstrate unusual ways to use candles, such as for setting the mood or crafting unique decor pieces.
+        2. Candle Making Tutorials: Teach people the fundamentals of candle making by demonstrating the steps or offering helpful tips.
+        3. Candle Making Challenges: Invent an interesting challenge related to your candle making business and encourage people to participate.
+        4. Behind the Scenes of a Candle Maker: Share a behind-the-scenes look into the creative process of making candles, from conception to perfect product.
+        5. DIY Candle Challenge: Set a challenge for your followers to create a unique candle using resources from around their home. Feature different creations and encourage others to participate in the challenge.`,
+        businessName: 'Candle making project',
+        targetAudience: 'DIY enthusiasts and home decor lovers and home decoration lovers',
+
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+    } else {
+      this.setState({
+        value,
+        heading: 'Your AI-Generated content ideas Will Shine Right Here',
+        response1: '',
+
+        businessName: '',
+        targetAudience: '',
+
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+      clearInterval(this.state.typingEffectInterval);
+    }
+  };
+
   onFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -100,7 +134,7 @@ class Tiktok extends Component {
     const responseLines = this.state.response1.split('\n');
     return (
       <div>
-        <NavbarTool />
+        <NavbarTool setValue={this.setValue} />
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
