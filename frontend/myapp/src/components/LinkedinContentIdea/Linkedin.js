@@ -54,6 +54,28 @@ class Linkedin extends Component {
       return;
     }
 
+    this.setState({ loading: true });
+
+    try {
+      const configuration = new Configuration({
+        apiKey: process.env.REACT_APP_API_KEY,
+      });
+
+      const openai = new OpenAIApi(configuration);
+
+      const response = await openai.createCompletion({
+        model: 'text-davinci-003',
+        prompt: `\n\nBusiness Description: ${businessName}\nTarget Audience: ${targetAudience}\nPrompt:\nGenerate 5 engaging content ideas for LinkedIn that will resonate with your target audience and help establish your brand as a thought leader in your industry. The content should be professional, informative, and relevant to the LinkedIn platform.\n\nKey considerations:\n1. Industry Insights and Trends: Share your expertise by providing valuable insights and analysis of the latest trends, news, or developments in your industry. This positions you as a knowledgeable professional and sparks discussions among your connections.\n2. Thought Leadership Articles: Write thought-provoking articles that address challenges, offer solutions, or provide industry-related tips. Showcase your expertise and share actionable advice that your audience can benefit from.\n3. Case Studies or Success Stories: Share real-life examples of how your products or services have helped clients or customers achieve success. Highlight the challenges they faced, the solutions implemented, and the measurable results they obtained.\n4. Professional Tips and Advice: Share practical tips, advice, or best practices that are relevant to your industry or profession. These can range from productivity hacks, career development tips, or insights on improving specific skills.\n5. Engage in Industry Discussions: Participate in LinkedIn groups or industry-related discussions by offering your perspective, asking thoughtful questions, and sharing valuable insights. This helps you build connections, expand your network, and establish your credibility.\n\nPlease generate 5 content ideas that are professional, informative, and engaging for LinkedIn. Consider your target audience's professional interests, industry trends, and the expertise of your business to create content that provides value and encourages engagement and networking on the LinkedIn platform.\n\n`,
+        temperature: 1,
+        max_tokens: 500,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
