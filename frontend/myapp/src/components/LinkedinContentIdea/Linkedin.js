@@ -87,6 +87,10 @@ class Linkedin extends Component {
 
     } catch (error) {
       console.log(error);
+      this.setState({
+        error: 'An error occurred. Please try again.',
+        loading: false,
+      });
     }
   };
 
@@ -120,12 +124,21 @@ class Linkedin extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            {this.state.error && <p className="err" style={{color: 'red'}}>{this.state.error}</p>}
             <button type="submit" disabled={!isAllowedToGenerate}>Generate with AI</button>
+            <Stack className="info"><Alert severity="info">When you click "Generate," it may take a few seconds!</Alert></Stack>
           </form>
           <div className="output-tool">
             <Card><CardContent><h4>{heading}</h4>{responseLines.map((line, index) => (<p key={index}>{line}</p>))}</CardContent></Card>
           </div>
         </div>
+        {loading && (
+          <div className="loader-overlay">
+            <div className="loader1">
+              <Loader />
+            </div>
+          </div>
+        )}
       </div>
     );
   }
