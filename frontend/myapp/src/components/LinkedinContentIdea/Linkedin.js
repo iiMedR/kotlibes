@@ -39,6 +39,40 @@ class Linkedin extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  setValue = async (value) => {
+    if (value) {
+      this.setState({
+        value,
+        heading: 'Linkedin content ideas suggestion for Graphic design and websites Developer',
+        response1: `\n1. Industry Insight Reports: Create and publish reports that provide an in-depth analysis of the latest trends and developments in the industry. Share your insights and highlight any adjustments businesses need to make in order to remain competitive.
+        2. Professional Tips and Advice: Share practical tips, advice, or best practices that aim to help start-ups and small businesses succeed with their projects or initiatives.
+        3. Success Stories: Share client success stories and case studies that illustrate how your solutions have helped businesses overcome challenges and achieve success.
+        4. Demonstration Videos: Create videos that demonstrate the processes or tools associated with your products and services. These can provide a visual and interactive way to explain complex concepts to your target audience.  
+        5. LinkedIn Live Events: Host live online Q&A sessions that allow you to interact with your audience and answer questions they may have about your services or industry.`,
+        businessName: 'Graphic design and websites Developer',
+        targetAudience: 'companies that need developers and graphic designers',
+
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+    } else {
+      this.setState({
+        value,
+        heading: 'Your AI-Generated content ideas Will Shine Right Here',
+        response1: '',
+
+        businessName: '',
+        targetAudience: '',
+
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+      clearInterval(this.state.typingEffectInterval);
+    }
+  };
+
   onFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -100,7 +134,7 @@ class Linkedin extends Component {
     const responseLines = this.state.response1.split('\n');
     return (
       <div>
-        <NavbarTool />
+        <NavbarTool setValue={this.setValue} />
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
