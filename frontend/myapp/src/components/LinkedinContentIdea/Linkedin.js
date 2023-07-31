@@ -35,10 +35,6 @@ class Linkedin extends Component {
     this.setState({ userStatus: status });
   }
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
   setValue = async (value) => {
     if (value) {
       this.setState({
@@ -72,6 +68,10 @@ class Linkedin extends Component {
 
       clearInterval(this.state.typingEffectInterval);
     }
+  };
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   onFormSubmit = async (e) => {
@@ -151,14 +151,27 @@ class Linkedin extends Component {
   };
 
   render() {
-    const { loading, heading, userStatus } = this.state;
+    const {
+      loading,
+      heading,
+      typingEffect,
+      userStatus,
+    } = this.state;
+
     const isAllowedToGenerate = userStatus === 'trial';
-    const responseLines = this.state.typingEffect.split('\n');
+    const responseLines = typingEffect.split('\n');
+
     return (
       <div>
         <NavbarTool setValue={this.setValue} />
+
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
+            <Stack className="info">
+              <Alert severity="info">
+                When you click "Generate," it may take a few seconds!
+              </Alert>
+            </Stack>
             <h4>ABOUT YOUR BUSINESS</h4>
             <TextField
               fullWidth
@@ -170,6 +183,7 @@ class Linkedin extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <h4>ABOUT AUDIENCE</h4>
             <TextField
               fullWidth
               value={this.state.targetAudience}
@@ -180,14 +194,25 @@ class Linkedin extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+
+
+
             {this.state.error && <p className="err" style={{color: 'red'}}>{this.state.error}</p>}
             <button type="submit" disabled={!isAllowedToGenerate}>Generate with AI</button>
-            <Stack className="info"><Alert severity="info">When you click "Generate," it may take a few seconds!</Alert></Stack>
           </form>
+
           <div className="output-tool">
-            <Card><CardContent><h4>{heading}</h4>{responseLines.map((line, index) => (<p key={index}>{line}</p>))}</CardContent></Card>
+            <Card>
+              <CardContent>
+                <h4>{heading}</h4>
+                {responseLines.map((line, index) => (
+                  <p key={index}>{line}</p>
+                ))}
+              </CardContent>
+            </Card>
           </div>
         </div>
+
         {loading && (
           <div className="loader-overlay">
             <div className="loader1">
