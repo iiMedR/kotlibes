@@ -49,6 +49,47 @@ class EmailLeads extends Component {
         <NavbarTool />
         <div className="inputOutput">
           <form className="inputs-tool">
+            <h4>ABOUT YOUR BUSINESS</h4>
+            <TextField
+              fullWidth
+              value={this.state.businessName}
+              label="Describe Your Business"
+              id="fullWidth"
+              name="businessName"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.businessNich}
+              label="Your Business Nich"
+              id="fullWidth"
+              name="businessNich"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.title}
+              label="Your Post Title"
+              id="fullWidth"
+              name="title"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.targetAudience}
+              label="Your Target Audience"
+              id="fullWidth"
+              name="targetAudience"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
