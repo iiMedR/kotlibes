@@ -56,6 +56,28 @@ class EmailLeads extends Component {
       return;
     }
 
+    this.setState({ loading: true });
+
+    try {
+      const configuration = new Configuration({
+        apiKey: process.env.REACT_APP_API_KEY,
+      });
+
+      const openai = new OpenAIApi(configuration);
+
+      const response = await openai.createCompletion({
+        model: 'text-davinci-003',
+        prompt: `\n\nTitle: ${title}\n\nDescription: ${businessName} catering to ${targetAudience} in the ${businessNich}. They aim to provide valuable and engaging content to their audience on Instagram to increase brand awareness and foster meaningful connections. The goal of this post is to educate, entertain, and engage the audience without directly selling. The content should be informative, interesting, or fun to read, and each slide should contain visually appealing content that aligns with the client's niche.\n\nGoal: Strengthening the presence of our brand in this nich: ${businessNich}\n\nPrompt: Create a series of slides for an Instagram news feed post that will captivate the audience's attention and encourage engagement. The first slide should contain an attention-grabbing element, such as a thought-provoking question or sharing fascinating facts related to the niche that the audience might not be aware of. The subsequent slides should provide educational or entertaining content that adds value to the audience's knowledge or brings joy to their day. Remember to include visually appealing content that aligns with the niche, ensuring the text is easy to read.\n\nThe call-to-action should be placed in the last slide, encouraging the audience to take action, such as leaving a comment, tagging a friend, or visiting the client's website for more information. And in the end make a description accompanying the post should provide context, engage the audience, and include related hashtags to increase discoverability.\n\nPlease note that while generating the content for each slide, focus on creating engagement, providing valuable information, and maintaining a consistent tone that resonates with the target audience. Avoid direct sales pitches, and instead aim to build brand awareness and foster a sense of community among the audience.\n\nbased on this form\n\nSlide 1: ...\n\nSlide 2: ...\n\nSlide 3: ...\n\nSlide 4: ...\n\nSlide 5: ...\n\nSlide 6: ...\n\nSlide 7: ...\n\nSlide 8: Call-to-action: ...\n\nDescription: ...\n\n(you can use more that 5 slides)\n\n`,
+        temperature: 1,
+        max_tokens: 1000,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
