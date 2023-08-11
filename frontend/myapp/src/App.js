@@ -2,6 +2,7 @@ import './App.css';
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/LoginPage';
+import InstagramPostScript from './Pages/tool-pages/InstagramPostScript';
 import LinkedinContentM from './Pages/tool-pages/LinkedinContentM';
 import TiktokContentM from './Pages/tool-pages/TiktokContentM';
 import InstagramContentM from './Pages/tool-pages/InstagramContentM';
@@ -18,6 +19,7 @@ class App extends Component {
         <Router>
           <Routes>
             <Route path="/login" element={<Login/>} />
+            <Route path="/Tools/instagram-post-Scripts" element={<InstagramPostScript />} />
             <Route path="/Tools/linkedin-content-ideas" element={<LinkedinContentM />} />
             <Route path="/Tools/tiktok-content-ideas" element={<TiktokContentM />} />
             <Route path="/Tools/instagram-content-ideas" element={<InstagramContentM />} />
