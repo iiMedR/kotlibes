@@ -41,6 +41,55 @@ class EmailLeads extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  setValue = async (value) => {
+    if (value) {
+      this.setState({
+        value,
+        heading: 'Post script suggestion for your Candle project',
+        response1: `\n Slide 1:
+        Question: Ever wondered how extinguishing a candle can not only help relax your mind but also be beneficial in other aspects of your life? 
+         
+        Slide 2:
+        Fact: Did you know that indulging in the act of extinguishing a candle can help you stay mindful of your actions? 
+        
+        Slide 3: 
+        Tip: Make your candle lighting practice a mindful ritual. Take a moment to relax and focus on your breath during this process; lighting a candle can be used to guide your mindfulness practice and help clear your mind.
+        
+        Slide 4: 
+        Tip: Use scent to elevate your self-care. Certain scents can help promote relaxation and clarity, enabling you to take care of yourself with a sense of intention and mindfulness.
+        
+        Slide 5: 
+        Call-to-action: Check out our website for more candle making tips to make your self-care ritual even more special!
+        
+        Description: Taking care of yourself is an empowering act; lighting a candle can help you stay mindful while practicing this essential self-care ritual. Check out our website for more tips and ideas to make your candle lighting sessions more meaningful and special. #candlemakingtips #selfcare #mindfulness`,
+        businessName: 'Candle making project',
+        businessNich: 'Candle Making',
+        title: 'Self-Care Tips Using Candles',
+        targetAudience: 'DIY enthusiasts and home decor lovers',
+
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+    } else {
+      this.setState({
+        value,
+        heading: 'Your AI-Generated Post Will Shine Right Here',
+        response1: '',
+
+        businessName: '',
+        businessNich: '',
+        title: '',
+        targetAudience: '',
+
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+      clearInterval(this.state.typingEffectInterval);
+    }
+  };
+
   onFormSubmit = async (e) => {
     e.preventDefault();
     
@@ -102,7 +151,7 @@ class EmailLeads extends Component {
     const responseLines = this.state.response1.split('\n');
     return (
       <div>
-        <NavbarTool />
+        <NavbarTool setValue={this.setValue} />
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
