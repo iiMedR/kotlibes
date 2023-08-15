@@ -51,6 +51,27 @@ class EmailSales extends Component {
         <NavbarTool />
         <div className="inputOutput">
           <form className="inputs-tool">
+            <h4>ABOUT YOUR BUSINESS</h4>
+            <TextField
+              fullWidth
+              value={this.state.businessName}
+              label="Describe Your Business"
+              id="fullWidth"
+              name="businessName"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.businessProduct}
+              label="Your Products/Services"
+              id="fullWidth"
+              name="businessProduct"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
