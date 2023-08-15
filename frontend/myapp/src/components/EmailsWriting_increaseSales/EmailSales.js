@@ -72,6 +72,16 @@ class EmailSales extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <TextField
+              fullWidth
+              value={this.state.businessFeature}
+              label="Unique Features/Benifites"
+              id="fullWidth"
+              name="businessFeature"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
