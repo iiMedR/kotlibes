@@ -58,6 +58,28 @@ class EmailSales extends Component {
       return;
     }
 
+    this.setState({ loading: true });
+
+    try {
+      const configuration = new Configuration({
+        apiKey: process.env.REACT_APP_API_KEY,
+      });
+
+      const openai = new OpenAIApi(configuration);
+
+      const response = await openai.createCompletion({
+        model: 'text-davinci-003',
+        prompt: `\n\nOur client is a ${businessName} that offers ${businessProduct} to ${targetAudience}. They provide ${businessFeature} that set them apart from competitors and deliver exceptional value to customers.\n\nTarget Audience:\n\nThe target audience consists of ${targetAudience}, who are ${audienceChar} and ${audiencePain}. They are seeking ${audienceNeeds} and are motivated to make a purchase.\n\nUnique Selling Proposition (USP):\n\nOur client's Unique Selling Proposition is ${USP}. It differentiates them from competitors and positions them as the preferred choice.\n\nGoal:\n\nThe goal of this email marketing campaign is to increase sales by compelling recipients to take action and make a purchase. The email should emphasize the value, benefits, and unique aspects of our client's offerings, driving recipients to make a buying decision.\n\nPrompt:\n\nGenerate an engaging and persuasive email marketing copy that captures the attention of our target audience and encourages them to take action. The email should highlight the unique selling proposition of our client's products/services and clearly communicate the value and benefits they provide. Focus on creating a sense of urgency, showcasing any limited-time offers or promotions, and including a clear call-to-action that prompts recipients to make a purchase.\n\nPlease note that the generated email should be well-crafted, persuasive, and optimized for driving sales conversions. It should be customer-centric, addressing the pain points, desires, and motivations of our target audience while effectively communicating the value proposition of our client's offerings.`,
+        temperature: 0.75,
+        max_tokens: 600,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
