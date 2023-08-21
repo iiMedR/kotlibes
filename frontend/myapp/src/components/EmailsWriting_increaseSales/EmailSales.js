@@ -77,14 +77,31 @@ class EmailSales extends Component {
         presence_penalty: 0,
       });
 
+      const responseText = response.data.choices[0].text;
+
+      this.setState({
+        heading: `Email suggestion for your ${businessName}`,
+        response1: responseText,
+        error: '',
+        loading: false,
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+
     } catch (error) {
       console.log(error);
+      this.setState({
+        error: 'An error occurred. Please try again.',
+        loading: false,
+      });
     }
   };
 
   render() {
     const { loading, heading, userStatus } = this.state;
     const isAllowedToGenerate = userStatus === 'trial';
+    const responseLines = this.state.response1.split('\n');
     return (
       <div>
         <NavbarTool />
@@ -177,11 +194,21 @@ class EmailSales extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            {this.state.error && <p className="err" style={{color: 'red'}}>{this.state.error}</p>}
             <button type="submit" disabled={!isAllowedToGenerate}>Generate with AI</button>
+            <Stack className="info"><Alert severity="info">When you click "Generate," it may take a few seconds!</Alert></Stack>
           </form>
           <div className="output-tool">
+            <Card><CardContent><h4>{heading}</h4>{responseLines.map((line, index) => (<p key={index}>{line}</p>))}</CardContent></Card>
           </div>
         </div>
+        {loading && (
+          <div className="loader-overlay">
+            <div className="loader1">
+              <Loader />
+            </div>
+          </div>
+        )}
       </div>
     );
   }
