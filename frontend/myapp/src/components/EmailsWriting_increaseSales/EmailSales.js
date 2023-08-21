@@ -43,6 +43,66 @@ class EmailSales extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  setValue = async (value) => {
+    if (value) {
+      this.setState({
+        value,
+        heading: 'Email suggestion for your Fitness Club',
+        response1: `\n Subject Line: Invest in Your Fitness. Unlock Your Fitness Potential at Our Club!
+        
+        
+        Dear Fitness Enthusiast,
+        
+        Are you looking to unlock your full fitness potential? Do you want to find a supportive and motivating fitness environment that caters to your individual needs?
+        
+        Look no further than our Fitness Club! We understand the needs of each and every one of our customers. We are passionate about helping you reach your fitness goals and realize your full potential. We offer an array of fitness classes and personal training sessions that are tailored to fit your needs and goals. Plus, you will have access to state-of-the-art equipment and certified trainers who will provide personalized attention and support.
+        
+        Our club will provide you with an unparalleled fitness experience and a vibrant community to keep you motivated! We also offer flexible membership options that will be sure to match your budget.
+        
+        This is a once in a lifetime opportunity to invest in your fitness and greatly improve your physical and mental wellbeing. We have a great limited-time offer on our memberships, now is the time to take advantage of it!
+        
+        Join our club today and take your fitness to the next level. Click the link below to learn more about our offerings and take the first step towards achieving your fitness goals.
+        
+        We look forward to seeing you at our club!
+        
+        Sincerely,
+        
+        The Fitness Club Team`,
+        businessName: 'Fitness Club',
+        businessProduct: 'fitness classes and personal training sessions',
+        businessFeature: 'state-of-the-art equipment and certified trainers',
+        targetAudience: 'fitness enthusiasts',
+        audienceChar: 'dedicated to improving their physical fitness, regardless of their current fitness level',
+        audiencePain: 'struggling to find a supportive and motivating fitness environment that caters to their individual needs',
+        audienceNeeds: 'a fitness club that offers a variety of classes to challenge and inspire them, personalized attention from knowledgeable trainers, and a sense of community to stay motivated throughout their fitness journey',
+        USP: 'providing personalized training programs, a vibrant community, and flexible membership options',
+
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      this.startTypingEffect(this.state.response1);
+    } else {
+      this.setState({
+        value,
+        heading: 'Your AI-Generated Email Will Shine Right Here',
+        response1: '',
+        businessName: '',
+        businessProduct: '',
+        businessFeature: '',
+        targetAudience: '',
+        audienceChar: '',
+        audiencePain: '',
+        audienceNeeds: '',
+        USP: '',
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+      clearInterval(this.state.typingEffectInterval);
+    }
+  };
+
   onFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -88,6 +148,7 @@ class EmailSales extends Component {
         currentCharIndex: 0,
       });
 
+      this.startTypingEffect(responseText);
 
     } catch (error) {
       console.log(error);
@@ -98,13 +159,33 @@ class EmailSales extends Component {
     }
   };
 
+  startTypingEffect = (text, speed = 20) => {
+    clearInterval(this.state.typingEffectInterval);
+
+    let charIndex = 0;
+
+    const typingEffectInterval = setInterval(() => {
+      if (charIndex <= text.length) {
+        this.setState({
+          typingEffect: text.substring(0, charIndex),
+          currentCharIndex: charIndex,
+        });
+        charIndex++;
+      } else {
+        clearInterval(typingEffectInterval);
+      }
+    }, speed);
+
+    this.setState({ typingEffectInterval });
+  };
+
   render() {
     const { loading, heading, userStatus } = this.state;
     const isAllowedToGenerate = userStatus === 'trial';
-    const responseLines = this.state.response1.split('\n');
+    const responseLines = this.state.typingEffect.split('\n');
     return (
       <div>
-        <NavbarTool />
+        <NavbarTool setValue={this.setValue} />
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
