@@ -87,6 +87,36 @@ class EmailLeads extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <TextField
+              fullWidth
+              value={this.state.businessExperience}
+              label="Unique Features/Benifites"
+              id="fullWidth"
+              name="businessExperience"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.businessNich}
+              label="Your Industry/Nich"
+              id="fullWidth"
+              name="businessNich"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.businessFeatures}
+              label="Your Unique Features"
+              id="fullWidth"
+              name="businessFeatures"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
