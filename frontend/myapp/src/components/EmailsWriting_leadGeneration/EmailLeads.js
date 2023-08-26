@@ -117,6 +117,40 @@ class EmailLeads extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <TextField
+              fullWidth
+              value={this.state.targetAudience}
+              label="Your Target Audience"
+              id="fullWidth"
+              name="targetAudience"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.audiencePain}
+              label="Pain Points"
+              multiline
+              maxRows={4}
+              id="fullWidth"
+              name="audiencePain"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.audienceNeeds}
+              label="Audience Needs/Solutions"
+              multiline
+              maxRows={4}
+              id="fullWidth"
+              name="audienceNeeds"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
