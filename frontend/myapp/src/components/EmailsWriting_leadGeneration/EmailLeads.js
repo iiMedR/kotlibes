@@ -151,6 +151,30 @@ class EmailLeads extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <TextField
+              fullWidth
+              value={this.state.USP}
+              label="Key Factors That Make You Stand Out"
+              multiline
+              maxRows={4}
+              id="fullWidth"
+              name="USP"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
+            <TextField
+              fullWidth
+              value={this.state.businessAdventages}
+              label="Your unique Adventages"
+              multiline
+              maxRows={4}
+              id="fullWidth"
+              name="businessAdventages"
+              onChange={this.handleChange}
+              style={{ marginBottom: '20px' }} 
+              required
+            />
           </form>
           <div className="output-tool">
           </div>
