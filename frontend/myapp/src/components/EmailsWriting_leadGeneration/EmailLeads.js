@@ -63,6 +63,28 @@ class EmailLeads extends Component {
       return;
     }
 
+    this.setState({ loading: true });
+
+    try {
+      const configuration = new Configuration({
+        apiKey: process.env.REACT_APP_API_KEY,
+      });
+
+      const openai = new OpenAIApi(configuration);
+
+      const response = await openai.createCompletion({
+        model: 'text-davinci-003',
+        prompt: `Business Description:\n\nOur client is a ${businessName} he's name is ${name} that specializes in ${businessProduct}. With  ${businessExperience}, they have established themselves as a trusted provider in the ${businessNich}.\n\nTarget Audience:\n\nThe target audience comprises ${targetAudience}, who are actively seeking ${audiencePain}. They are looking for ${audienceNeeds} and are interested in finding a reliable and reputable ${businessNich} provider.\n\nUnique Selling Proposition (USP):\n\nOur client's Unique Selling Proposition is ${USP}. They offer ${businessFeatures} that solve their target audience's problems and provide them with ${businessAdventages}.\n\nGoal:\n\nThe goal of this email marketing campaign is to generate quality leads for our client's business. The email should capture the attention of the recipients, create interest in the value our client offers, and prompt them to take action by providing their contact information or requesting more details.\n\nPrompt:\n\nGenerate an engaging email marketing copy that effectively communicates the value and benefits of our client's offerings to the target audience. The email should highlight the unique selling proposition and showcase how our client can solve their pain points or fulfill their needs. Craft a compelling call-to-action that encourages recipients to provide their contact information or engage in further conversation to learn more about our client's products/services.\n\nPlease note that the generated email should be persuasive, customer-focused, and optimized for lead generation. It should clearly communicate the benefits and value proposition of our client's offerings, addressing the target audience's needs and encouraging them to take the desired action of sharing their contact information or expressing interest in learning more.\n\n`,
+        temperature: 0.75,
+        max_tokens: 600,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
