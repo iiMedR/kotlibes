@@ -48,6 +48,23 @@ class EmailLeads extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  onFormSubmit = async (e) => {
+    e.preventDefault();
+
+    if (this.state.userStatus !== 'trial') {
+      this.setState({ error: 'You do not have permission to generate using this tool.' });
+      return;
+    }
+    
+    const { name, businessName, businessProduct, businessExperience, businessNich, targetAudience, audiencePain, audienceNeeds, USP, businessFeatures, businessAdventages} = this.state;
+
+    if ( !name || !businessName || !businessProduct || !businessExperience || !businessNich || !targetAudience || !audiencePain || !audienceNeeds || !USP || !businessFeatures || !businessAdventages) {
+      this.setState({ error: 'Both inputs are required' });
+      return;
+    }
+
+  };
+
   render() {
     const { loading, heading, userStatus } = this.state;
     const isAllowedToGenerate = userStatus === 'trial';
@@ -55,7 +72,7 @@ class EmailLeads extends Component {
       <div>
         <NavbarTool />
         <div className="inputOutput">
-          <form className="inputs-tool">
+          <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
             <TextField
               fullWidth
@@ -175,6 +192,7 @@ class EmailLeads extends Component {
               style={{ marginBottom: '20px' }} 
               required
             />
+            <button type="submit" disabled={!isAllowedToGenerate}>Generate with AI</button>
           </form>
           <div className="output-tool">
           </div>
