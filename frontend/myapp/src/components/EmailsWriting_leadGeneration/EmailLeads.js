@@ -82,6 +82,7 @@ class EmailLeads extends Component {
 
       await new Promise((resolve) => setTimeout(resolve, 500));
 
+      this.startTypingEffect(this.state.response1);
     } else {
       this.setState({
         value,
@@ -153,6 +154,7 @@ class EmailLeads extends Component {
         currentCharIndex: 0,
       });
 
+      this.startTypingEffect(responseText);
 
     } catch (error) {
       console.log(error);
@@ -163,10 +165,30 @@ class EmailLeads extends Component {
     }
   };
 
+  startTypingEffect = (text, speed = 20) => {
+    clearInterval(this.state.typingEffectInterval);
+
+    let charIndex = 0;
+
+    const typingEffectInterval = setInterval(() => {
+      if (charIndex <= text.length) {
+        this.setState({
+          typingEffect: text.substring(0, charIndex),
+          currentCharIndex: charIndex,
+        });
+        charIndex++;
+      } else {
+        clearInterval(typingEffectInterval);
+      }
+    }, speed);
+
+    this.setState({ typingEffectInterval });
+  };
+
   render() {
     const { loading, heading, userStatus } = this.state;
     const isAllowedToGenerate = userStatus === 'trial';
-    const responseLines = this.state.response1.split('\n');
+    const responseLines = this.state.typingEffect.split('\n');
     return (
       <div>
         <NavbarTool setValue={this.setValue} />
