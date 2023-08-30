@@ -48,6 +48,66 @@ class EmailLeads extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  setValue = async (value) => {
+    if (value) {
+      this.setState({
+        value,
+        heading: 'Email suggestion for your foods restaurant',
+        response1: `\n Subject Line: Satisfy Your Cravings with Delicious Bites
+
+        Body Text:
+        
+        Are you tired of mediocre food options and craving something delicious and unique? Look no further! Delicious Bites offers the perfect solution to satisfy your cravings. Our gourmet pizzas and handcrafted burgers are made with fresh and locally sourced ingredients.
+        
+        We understand that flavor is paramount, which is why our chefs have crafted an extensive menu with creative combinations of seasonal specials. Our menu offers something for everyone, guaranteeing you will find something to tantalize your taste buds. Whether you are looking for a new favorite or something to tantalize your taste buds, Delicious Bites is sure to have something to satisfy your cravings.
+        
+        Experience the exceptional quality and taste that Delicious Bites has to offer. Request more details today and learn more about our delectable menu and amazing creations crafted by our expert chefs. Satisfy your cravings and join us at Delicious Bites today.
+        
+        Sincerely,
+        
+        Delicious Bites Team`,
+        businessName: 'Foods restaurant',
+        name: 'Delicious Bites',
+        businessProduct: 'Gourmet Pizzas and Handcrafted Burgers',
+        businessExperience: 'With over a decade of culinary expertise',
+        businessNich: 'Casual Dining',
+        targetAudience: 'Food enthusiasts and families',
+        audiencePain: 'Tired of mediocre food options',
+        audienceNeeds: 'Craving delicious and unique flavor combinations',
+        USP: 'Fresh and Locally Sourced Ingredients, Creative Menu Innovation',
+        businessFeatures:'Signature Pizzas, Artisanal Burgers, Seasonal Specials',
+        businessAdventages:'Flavorful creations crafted by expert chefs, Exceptional quality and taste',
+
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+    } else {
+      this.setState({
+        value,
+        heading: 'Your AI-Generated Email Will Shine Right Here',
+        response1: '',
+
+        name: '',
+        businessName: '',
+        businessProduct: '',
+        businessExperience: '',
+        businessNich: '',
+        targetAudience: '',
+        audiencePain: '',
+        audienceNeeds: '',
+        USP: '',
+        businessFeatures:'',
+        businessAdventages:'',
+
+        typingEffect: '',
+        currentCharIndex: 0,
+      });
+
+      clearInterval(this.state.typingEffectInterval);
+    }
+  };
+
   onFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -109,7 +169,7 @@ class EmailLeads extends Component {
     const responseLines = this.state.response1.split('\n');
     return (
       <div>
-        <NavbarTool />
+        <NavbarTool setValue={this.setValue} />
         <div className="inputOutput">
           <form onSubmit={this.onFormSubmit} className="inputs-tool">
             <h4>ABOUT YOUR BUSINESS</h4>
