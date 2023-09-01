@@ -45,6 +45,13 @@ CREATE TABLE IF NOT EXISTS `resetpassword` (
   PRIMARY KEY (`token_id`),
   KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `tool`;
+CREATE TABLE IF NOT EXISTS `tool` (
+  `tool_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tool_name` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`tool_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
