@@ -8,4 +8,12 @@ require_once 'DbConnect.php';
 $db = new DbConnect();
 $conn = $db->connect();
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    $idClient = $data['idClient'];
+    $idTool = $data['idTool'];
+    $usageDate = $data['usageDate'];
+
+}
 ?>
