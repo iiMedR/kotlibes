@@ -27,5 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return;
     }
 
+    // Check if the tool exists
+    $stmt = $conn->prepare('SELECT * FROM tool WHERE tool_id = :id');
+    $stmt->bindParam(':id', $idTool);
+    $stmt->execute();
+    $tool = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$tool) {
+        $response = array('success' => false, 'message' => 'Tool not found');
+        echo json_encode($response);
+        return;
+    }
+
 }
 ?>
