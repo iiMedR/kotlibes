@@ -15,5 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $idTool = $data['idTool'];
     $usageDate = $data['usageDate'];
 
+    // Check if the client exists
+    $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
+    $stmt->bindParam(':id', $idClient);
+    $stmt->execute();
+    $client = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$client) {
+        $response = array('success' => false, 'message' => 'Client not found');
+        echo json_encode($response);
+        return;
+    }
+
 }
 ?>
