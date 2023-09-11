@@ -40,4 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 }
+
+function updateUsageTable($conn, $tableName, $idClient, $idTool, $usageDate, $interval) {
+    // Check if the usage entry exists
+    $stmt = $conn->prepare("SELECT * FROM $tableName WHERE client_id = :clientId AND tool_id = :toolId");
+    $stmt->bindParam(':clientId', $idClient);
+    $stmt->bindParam(':toolId', $idTool);
+    $stmt->execute();
+    $usage = $stmt->fetch(PDO::FETCH_ASSOC);
+
+}
 ?>
