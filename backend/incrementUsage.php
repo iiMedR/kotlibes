@@ -50,6 +50,19 @@ function updateUsageTable($conn, $tableName, $idClient, $idTool, $usageDate, $in
     $usage = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($usage) {
+        $stmt = $conn->prepare("SELECT usage_date FROM $tableName WHERE client_id = :clientId AND tool_id = :toolId");
+        $stmt->bindParam(':clientId', $idClient);
+        $stmt->bindParam(':toolId', $idTool);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $date = $row['usage_date'];
+
+        if ($usageDate < $date) {
+            $stmt = $conn->prepare("UPDATE $tableName SET usage_count = usage_count + 1 WHERE client_id = :clientId AND tool_id = :toolId");
+            $stmt->bindParam(':clientId', $idClient);
+            $stmt->bindParam(':toolId', $idTool);
+            $stmt->execute();
+        }
     } else {
         $stmt = $conn->prepare("INSERT INTO $tableName (client_id, tool_id, usage_count, usage_date) VALUES (:clientId, :toolId, 1, DATE_ADD(:usageDate, INTERVAL $interval))");
         $stmt->bindParam(':clientId', $idClient);
