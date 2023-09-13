@@ -62,6 +62,12 @@ function updateUsageTable($conn, $tableName, $idClient, $idTool, $usageDate, $in
             $stmt->bindParam(':clientId', $idClient);
             $stmt->bindParam(':toolId', $idTool);
             $stmt->execute();
+        } else {
+            $stmt = $conn->prepare("UPDATE $tableName SET usage_count = 1, usage_date = DATE_ADD(:usageDate, INTERVAL $interval) WHERE client_id = :clientId AND tool_id = :toolId");
+            $stmt->bindParam(':usageDate', $usageDate);
+            $stmt->bindParam(':clientId', $idClient);
+            $stmt->bindParam(':toolId', $idTool);
+            $stmt->execute();
         }
     } else {
         $stmt = $conn->prepare("INSERT INTO $tableName (client_id, tool_id, usage_count, usage_date) VALUES (:clientId, :toolId, 1, DATE_ADD(:usageDate, INTERVAL $interval))");
