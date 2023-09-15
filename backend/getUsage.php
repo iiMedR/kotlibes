@@ -29,5 +29,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $currentDate = date('Y-m-d');
 
+    // Check daily usage
+    $dailyUsage = 0;
+    $dailyUsagePrice = 0;
+    $dailyUsageDate = date('Y-m-d', strtotime($currentDate . ' + 1 day'));
+
+    if ($usageDate < $dailyUsageDate) {
+        $stmt = $conn->prepare('SELECT SUM(tu.usage_count) AS total_usage_count, SUM(tu.usage_count * t.price) AS usage_price
+                                FROM toolusage tu, tool t
+                                Where tu.tool_id = t.tool_id
+                                AND tu.client_id = :clientId AND tu.usage_date > :usageDate');
+        $stmt->bindParam(':clientId', $id);
+        $stmt->bindParam(':usageDate', $usageDate);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $dailyUsage = $row['total_usage_count'];
+        $dailyUsagePrice = $row['usage_price'];
+    }
+
 }
 ?>
