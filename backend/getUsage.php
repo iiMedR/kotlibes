@@ -65,5 +65,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $weeklyUsagePrice = $row['usage_price'];
     }
 
+    // Check yearly usage
+    $yearlyUsage = 0;
+    $yearlyUsagePrice = 0;
+    $yearlyUsageDate = date('Y-m-d', strtotime($currentDate . ' + 1 year'));
+
+    if ($usageDate < $yearlyUsageDate) {
+        $stmt = $conn->prepare('SELECT SUM(tu.usage_count) AS total_usage_count, SUM(tu.usage_count * t.price) AS usage_price
+                                FROM toolusageyearly tu, tool t
+                                WHERE tu.tool_id = t.tool_id
+                                AND tu.client_id = :clientId AND tu.usage_date > :usageDate');
+        $stmt->bindParam(':clientId', $id);
+        $stmt->bindParam(':usageDate', $usageDate);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $yearlyUsage = $row['total_usage_count'];
+        $yearlyUsagePrice = $row['usage_price'];
+    }
+
+    // Prepare and send the response
+    $response = array(
+        'success' => true,
+        'daily' => $dailyUsage,
+        'dailyPrice' => $dailyUsagePrice,
+        'weekly' => $weeklyUsage,
+        'weeklyPrice' => $weeklyUsagePrice,
+        'yearly' => $yearlyUsage,
+        'yearlyPrice' => $yearlyUsagePrice,
+    );
+    echo json_encode($response);
 }
 ?>
