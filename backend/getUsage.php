@@ -47,5 +47,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $dailyUsagePrice = $row['usage_price'];
     }
 
+    // Check weekly usage
+    $weeklyUsage = 0;
+    $weeklyUsagePrice = 0;
+    $weeklyUsageDate = date('Y-m-d', strtotime($currentDate . ' + 1 week'));
+
+    if ($usageDate < $weeklyUsageDate) {
+        $stmt = $conn->prepare('SELECT SUM(tu.usage_count) AS total_usage_count, SUM(tu.usage_count * t.price) AS usage_price
+                                FROM toolusageweekly tu, tool t
+                                Where tu.tool_id = t.tool_id
+                                AND tu.client_id = :clientId AND tu.usage_date > :usageDate');
+        $stmt->bindParam(':clientId', $id);
+        $stmt->bindParam(':usageDate', $usageDate);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $weeklyUsage = $row['total_usage_count'];
+        $weeklyUsagePrice = $row['usage_price'];
+    }
+
 }
 ?>
