@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import secureLocalStorage from 'react-secure-storage';
+import NavDashboard from '../components/NavDashboard';
 import { Card } from 'react-bootstrap';
 import axios from 'axios';
 import BaseURL from '../components/BaseURL';
@@ -27,6 +28,7 @@ function Dashboard() {
     <>
       <div className='dashboardHome'>
         <div className='welcome'>
+          <NavDashboard/>
           <div className="dashboardContainer">
             <div className="DashboardUsage">
               <h2 className="dashboard-title">Usage 🚀</h2>
