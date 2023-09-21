@@ -31,6 +31,31 @@ function Dashboard() {
   const [weeklyUsagePrice, setWeeklyUsagePrice] = useState(null);
   const [yearlyUsagePrice, setYearlyUsagePrice] = useState(null);
 
+  useEffect(() => {
+    const idClient = secureLocalStorage.getItem('i');
+    const currentDate = new Date();
+    const date = currentDate.toISOString().split('T')[0];
+
+    console.log(idClient)
+    console.log(date)
+
+    axios
+      .post(`${BaseURL}/api/getUsage.php`, { idClient, date })
+      .then((response) => {
+        const { daily, dailyPrice, weekly, weeklyPrice, yearly, yearlyPrice} = response.data;
+
+        setDailyUsage(daily);
+        setWeeklyUsage(weekly);
+        setYearlyUsage(yearly);
+        setDailyUsagePrice(dailyPrice);
+        setWeeklyUsagePrice(weeklyPrice);
+        setYearlyUsagePrice(yearlyPrice);
+      })
+      .catch((error) => {
+        console.error('Error fetching usage data:', error);
+      });
+  }, []);
+
   return (
     <>
       <div className='dashboardHome'>
