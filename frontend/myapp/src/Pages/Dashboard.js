@@ -24,6 +24,13 @@ function Dashboard() {
   }
 
 
+  const [dailyUsage, setDailyUsage] = useState(null);
+  const [weeklyUsage, setWeeklyUsage] = useState(null);
+  const [yearlyUsage, setYearlyUsage] = useState(null);
+  const [dailyUsagePrice, setDailyUsagePrice] = useState(null);
+  const [weeklyUsagePrice, setWeeklyUsagePrice] = useState(null);
+  const [yearlyUsagePrice, setYearlyUsagePrice] = useState(null);
+
   return (
     <>
       <div className='dashboardHome'>
