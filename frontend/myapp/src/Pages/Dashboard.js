@@ -65,6 +65,33 @@ function Dashboard() {
             <div className="DashboardUsage">
               <h2 className="dashboard-title">Usage 🚀</h2>
               <div className="usage-cards-wrapper">
+                <Card className="usage-card" style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)', border: 'none' }}>
+                  <Card.Body>
+                    <div style={{ textAlign: 'left', color: '#1E65FA' }}>
+                      <h2>{dailyUsage !== null ? dailyUsage : 0} Kots</h2>
+                    </div>
+                    <Card.Title style={{fontWeight: '100', color: '#6c6c6c', fontSize: '16px'}}>Used Today</Card.Title>
+                    <br/>
+                  </Card.Body>
+                </Card>
+                <Card className="usage-card" style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)', border: 'none' }}>
+                  <Card.Body>
+                    <div  style={{ textAlign: 'left', color: '#1E65FA' }}>
+                      <h2>{weeklyUsage !== null ? weeklyUsage : 0} Kots</h2>
+                    </div>
+                    <Card.Title style={{fontWeight: '100', color: '#6c6c6c', fontSize: '16px'}}>Used This Week</Card.Title>
+                    <br/>
+                  </Card.Body>
+                </Card>
+                <Card className="usage-card" style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)', border: 'none' }}>
+                  <Card.Body>
+                    <div  style={{ textAlign: 'left', color: '#1E65FA' }}>
+                      <h2>{yearlyUsage !== null ? yearlyUsage : 0} Kots</h2>
+                    </div>
+                    <Card.Title style={{fontWeight: '100', color: '#6c6c6c', fontSize: '16px'}}>Used This Year</Card.Title>
+                    <br/>
+                  </Card.Body>
+                </Card>
               </div>
             </div>
           </div>
