@@ -72,6 +72,7 @@ function Dashboard() {
                     </div>
                     <Card.Title style={{fontWeight: '100', color: '#6c6c6c', fontSize: '16px'}}>Used Today</Card.Title>
                     <br/>
+                    <Card.Text style={{textAlign: 'center' , fontWeight: '500', fontSize: '19px'}}>You Saved Today : {dailyUsagePrice !== null ? dailyUsagePrice : 0}$</Card.Text>
                   </Card.Body>
                 </Card>
                 <Card className="usage-card" style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)', border: 'none' }}>
@@ -81,6 +82,7 @@ function Dashboard() {
                     </div>
                     <Card.Title style={{fontWeight: '100', color: '#6c6c6c', fontSize: '16px'}}>Used This Week</Card.Title>
                     <br/>
+                    <Card.Text style={{textAlign: 'center' , fontWeight: '500', fontSize: '19px'}}>you saved this week :  {weeklyUsagePrice !== null ? weeklyUsagePrice : 0}$</Card.Text>
                   </Card.Body>
                 </Card>
                 <Card className="usage-card" style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)', border: 'none' }}>
@@ -90,6 +92,7 @@ function Dashboard() {
                     </div>
                     <Card.Title style={{fontWeight: '100', color: '#6c6c6c', fontSize: '16px'}}>Used This Year</Card.Title>
                     <br/>
+                    <Card.Text style={{textAlign: 'center' , fontWeight: '500', fontSize: '19px'}}>you saved this year :  {yearlyUsagePrice !== null ? yearlyUsagePrice : 0}$</Card.Text>
                   </Card.Body>
                 </Card>
               </div>
