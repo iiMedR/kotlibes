@@ -7,7 +7,9 @@ import Stack from '@mui/material/Stack';
 import NavbarTool from './NavbarTool';
 import Loader from '../Loader';
 import { Configuration, OpenAIApi } from 'openai';
+import axios from 'axios';
 import secureLocalStorage from "react-secure-storage"
+import BaseURL from '../BaseURL';
 
 class Tiktok extends Component {
   constructor(props) {
@@ -121,6 +123,27 @@ class Tiktok extends Component {
 
       this.startTypingEffect(responseText);
 
+      // Increment usage in the database
+      const idClient = secureLocalStorage.getItem('i');
+      const idTool = '2';
+      const currentDate = new Date();
+      const usageDate = currentDate.toISOString().split('T')[0];
+      //console.log(usageDate)
+
+      const usageData = {
+        idClient,
+        idTool,
+        usageDate,
+      };
+
+      axios.post(`${BaseURL}/api/incrementUsage.php`, usageData)
+        .then((response) => {
+          // Handle the response if necessary
+        })
+        .catch((error) => {
+          console.log(error);
+          // Handle the error if necessary
+        });
     } catch (error) {
       console.log(error);
       this.setState({
