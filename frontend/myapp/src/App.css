@@ -868,3 +868,258 @@ margin: 15px 0;
  
 
 
+
+/***************************************dashboard home *********************************************************/
+
+/****************************************dashboard*/
+.dashboardHome{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /*width: calc(100vw - 280px);*/
+  width: 100vw;
+  overflow:auto;
+  height:100vh;
+  background-color: rgb(255, 255, 255);
+}
+  
+  .dashboardHome .welcome{
+    text-align: left;
+  }
+
+  .dashboardHome .welcome .Avatar{
+    position:absolute;
+    font-size: 18px;
+    right: 50px;
+    margin-top: 20px;
+    background-color: #f6f6f676;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+  }
+
+.dashboardContainer {
+  margin-top: 70px;
+  padding-right: 20px;
+  position:absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: calc(100vw - 280px);;
+}
+
+.DashboardUsage{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin: 50px;
+}
+
+.DashboardUsage .dashboard-title{
+  margin-bottom: 35px;
+  margin-top: 60px;
+}
+
+.usage-cards-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.usage-card {
+  flex: 1;
+  min-width: 200px;
+  max-width: calc(33.33% - 15px);
+  
+}
+
+.chart-container {
+  width: 50%;
+}
+
+.dashboardMS{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.roadmap button{
+  position: relative;
+  width: 100%; /* You can adjust this width as needed */
+  height: auto; /* Maintain aspect ratio */
+  background-image: url('./assets/img/roadmap.jpg');
+  background-size: cover;
+  background-position: center center;
+  color: white;
+  transition: transform .3s ease-in-out; 
+  border-radius: 5px;
+  border: none;
+}
+
+.roadmap button:hover{
+  transform: scale(1.01);
+}
+
+@media screen and (max-width: 576px) {
+  .usage-cards-wrapper {
+    flex-direction: column; /* Display cards in a column on mobile */
+  }
+
+  .usage-card {
+    max-width: 100%; /* Take full width of the container */
+    margin-bottom: 20px; /* Add space between cards */
+  }
+}
+
+
+@media screen and (max-width: 992px) {
+  
+  .dashboardContainer {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    width: 100%;
+    position: inherit;
+  }
+
+  .dashboardHome .welcome h3,
+  .dashboardHome .welcome span{
+    position:absolute;
+    left: 0;
+    margin-top: -20px;
+    margin-left: 20px;
+    z-index: 99999999;
+  }
+  .dashboardHome .welcome h3{
+    margin-left: 60px;
+  }
+
+  .dashboardHome .welcome span{
+    margin-top: -25px;
+  }
+  
+}
+
+
+/**************************navbar dashboard*/
+
+.dashboard-sidebar{
+width: 280px;
+z-index: 999;
+}
+
+.dashboard-navbar{
+  height: 100px;
+  width: calc(100vw - 280px);
+  position: absolute;
+  right: 0;
+  z-index: 998;
+  background-color: white;
+}
+
+.dashboard-navbar .Avatar{
+  position:absolute;
+  font-size: 18px;
+  right: 50px;
+  margin-top: 15px;
+  background-color: #ffffff !important;
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  border: none;
+}
+
+
+
+.dashboard-navbar .Dropdownprofile{
+  position: absolute;
+  top: 7rem;
+  right: 5rem;
+  width: 200px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+}
+
+.dashboard-navbar .Dropdownprofile::before{
+  content: '';
+  position: absolute;
+  top: -0.8rem;
+  right: 1.5rem;
+  width:25px;
+  height: 25px;
+  transform: rotate(45deg);
+  background-color: #ffffff;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+}
+
+.dashboard-navbar .Dropdownprofile ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Adjust the spacing between items */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  list-style: none; /* Remove list bullets */
+}
+
+.dashboard-navbar .Dropdownprofile ul #dropdown-link{
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (max-width: 992px) {
+  .dashboardContainer{
+    margin-top: 0;
+    margin-bottom: 50px !important;
+  }
+  .DashboardUsage{
+    margin: 0;
+    margin-top: 100px;
+  }
+  .dashboard-navbar{
+    position: fixed;
+    height: 100px;
+    width: 100vw;
+  }
+  .dashboard-sidebar{
+    padding-left: 5px !important;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    position: absolute;
+  }
+
+  .dashboard-navbar .Avatar{
+    font-size: 12px !important;
+    padding: 12px !important;
+    text-align: center !important;  
+  }
+  .dashboard-navbar .Dropdownprofile{
+    top: 5.5rem !important;
+    right: 4rem;
+    width: 150px;
+    font-size: 12px;
+    padding: 10px;
+  }
+  
+  
+}
+
+@media screen and (max-width: 465px) {
+  .dashboard-navbar .Avatar{
+    width: 150px;
+    right: 15px !important;
+  }
+  .dashboard-navbar .Dropdownprofile{
+    top: 6.5rem !important;
+    right: 1.5rem;
+  }
+}
+
+
