@@ -2,6 +2,7 @@ import './App.css';
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/LoginPage';
+import Dashboard from './Pages/Dashboard';
 import EmailsWritingLG from './Pages/tool-pages/EmailsWritingLG';
 import EmailsWritingIS from './Pages/tool-pages/EmailsWritingIS';
 import InstagramPostScript from './Pages/tool-pages/InstagramPostScript';
@@ -21,6 +22,7 @@ class App extends Component {
         <Router>
           <Routes>
             <Route path="/login" element={<Login/>} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/Tools/email-leads-generation" element={<EmailsWritingLG />} />
             <Route path="/Tools/email-increasing-sales" element={<EmailsWritingIS />} />
             <Route path="/Tools/instagram-post-Scripts" element={<InstagramPostScript />} />

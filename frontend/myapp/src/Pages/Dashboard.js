@@ -56,14 +56,33 @@ function Dashboard() {
       });
   }, []);
 
+  /*const data = [
+    { day: 'Mon', usage: 100 },
+    { day: 'Tue', usage: 150 },
+    { day: 'Wed', usage: 120 },
+    { day: 'Thu', usage: 200 },
+    { day: 'Fri', usage: 180 },
+    { day: 'Sat', usage: 250 },
+    { day: 'Sun', usage: 500 },
+  ];*/
+
+
+
+
   return (
     <>
+    
       <div className='dashboardHome'>
-        <div className='welcome'>
+
+      <div className='welcome'>
+        <div className='nam'>
           <NavDashboard/>
+        </div>
+          {/************************************************************* */}
           <div className="dashboardContainer">
-            <div className="DashboardUsage">
-              <h2 className="dashboard-title">Usage 🚀</h2>
+            <div className='DashboardUsage'>
+              <h2 className='dashboard-title'>Usage 🚀</h2>
+
               <div className="usage-cards-wrapper">
                 <Card className="usage-card" style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)', border: 'none' }}>
                   <Card.Body>
@@ -75,6 +94,7 @@ function Dashboard() {
                     <Card.Text style={{textAlign: 'center' , fontWeight: '500', fontSize: '19px'}}>You Saved Today : {dailyUsagePrice !== null ? dailyUsagePrice : 0}$</Card.Text>
                   </Card.Body>
                 </Card>
+
                 <Card className="usage-card" style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)', border: 'none' }}>
                   <Card.Body>
                     <div  style={{ textAlign: 'left', color: '#1E65FA' }}>
@@ -85,6 +105,7 @@ function Dashboard() {
                     <Card.Text style={{textAlign: 'center' , fontWeight: '500', fontSize: '19px'}}>you saved this week :  {weeklyUsagePrice !== null ? weeklyUsagePrice : 0}$</Card.Text>
                   </Card.Body>
                 </Card>
+
                 <Card className="usage-card" style={{ boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)', border: 'none' }}>
                   <Card.Body>
                     <div  style={{ textAlign: 'left', color: '#1E65FA' }}>
@@ -96,10 +117,41 @@ function Dashboard() {
                   </Card.Body>
                 </Card>
               </div>
+
+              <h2 className='dashboard-title'>Seasonal Roadmap  📝</h2>
+              <Card className="roadmap">
+                <button className="roadmap-button">
+                <Card.Body>
+                  <Card.Title style={{ fontWeight: '500', fontSize: '19px'}}>COMING SOON</Card.Title>
+                  <Card.Text>AI-powered seasonal marketing roadmap generator for maximizing sales: Christmas, Ramadan, Black Friday & more.</Card.Text>
+                  <div style={{ textAlign: 'center', fontWeight: '500', fontSize: '19px' }}>
+                    <h2>Profitable Seasonal Roadmap</h2>
+                  </div>
+                </Card.Body>
+                </button>
+              </Card>
+
+              
             </div>
+            {/*
+            <div className='dashboardWeeklyChart'>
+              <h2>Usage Chart:</h2>
+              <div className="chart-container">
+                <LineChart width={window.innerWidth - 380} height={300} data={data}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="day" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="usage" stroke="#8884d8" />
+                </LineChart>
+              </div> 
+            </div>
+           */} 
           </div>
-        </div>
+          {/**----------------------------------------------------------- */}
       </div>
+    </div>
     </>
   )
 }
