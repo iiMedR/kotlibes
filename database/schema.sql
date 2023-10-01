@@ -85,6 +85,24 @@ CREATE TABLE IF NOT EXISTS `toolusageyearly` (
   KEY `client_id` (`client_id`),
   KEY `tool_id` (`tool_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `subscriptions`;
+CREATE TABLE IF NOT EXISTS `subscriptions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subs_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `variant_id` int(11) DEFAULT NULL,
+  `user_email` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `renews_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `card_brand` varchar(255) DEFAULT NULL,
+  `card_last_four` varchar(4) DEFAULT NULL,
+  `customer_id_ls` int(11) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `variant_id` (`variant_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
