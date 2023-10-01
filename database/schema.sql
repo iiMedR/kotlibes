@@ -103,6 +103,14 @@ CREATE TABLE IF NOT EXISTS `subscriptions` (
   KEY `user_id` (`user_id`),
   KEY `variant_id` (`variant_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `variants`;
+CREATE TABLE IF NOT EXISTS `variants` (
+  `variant_id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `tokens` int(11) DEFAULT NULL,
+  PRIMARY KEY (`variant_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
