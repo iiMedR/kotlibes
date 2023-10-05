@@ -126,6 +126,29 @@ function Pricing() {
           </ul>
           <button className="subscribe-btn" >Subscribe</button>
         </div>
+        <div className="plan premium">
+          <h2 className="plan-name">{selectedPremiumPlan.name}</h2>
+          <p className="plan-price">{selectedPremiumPlan.prices[sliderValue - 1]}<span className="plan-period" style={{ color: 'white' }}>{selectedPremiumPlan.period}</span></p>
+          <p className="credits" style={{backgroundColor: 'white', color: '#1e59fa'}}>{selectedPremiumPlan.credits} + {selectedPremiumPlan.free}</p>
+          <ul className="plan-features">
+            {selectedPremiumPlan.features.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
+          </ul>
+          <button className="subscribe-btn" >Subscribe</button>
+        </div>
+
+        <div className="plan">
+          <h2 className="plan-name">Custom Plan</h2>
+          <p className="plan-price">{'>'}$139.99<span className="plan-period">{selectedPlatinumPlan.period}</span></p>
+          <p className="credits">Custom Credits</p>
+          <ul className="plan-features">
+            {selectedPremiumPlan.features.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
+          </ul>
+          <button className="subscribe-btn" >Contact Us</button>
+        </div>
         {/**
          <div className="plan">
           <h2 className="plan-name">{selectedPlatinumPlan.name}</h2>
