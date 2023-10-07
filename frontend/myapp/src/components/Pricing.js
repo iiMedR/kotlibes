@@ -114,6 +114,50 @@ function Pricing() {
   return (
     <>
       <h1 className="pricing-title">Choose The <span className="title-blue">Plan</span> That Suits You</h1>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: '50px',
+        
+      }}>
+        {/* <PrettoSlider
+          marks
+          aria-label="Temperature"
+          value={sliderValue}
+          onChange={handleSliderChange}
+          min={1}
+          max={10}
+          step={1}
+          style={{
+            maxWidth: '60vw',
+          }}
+        /> */}
+        <InputSlider
+          axis="x"
+          x={sliderValue}
+          xmax={10}
+          xmin={1}
+          xstep={1}
+          onChange={({ x }) => setSliderValue(x)}
+          styles={{
+            track: {
+              backgroundColor: '#1e59fa60',
+              width: '70%', // Set the desired width here
+
+            },
+            active: {
+              backgroundColor: '#1e59fa',
+            },
+            thumb: {
+              border: '2px solid #1e59fa',
+              backgroundColor: '#fff',
+              height: '25px',
+              width: '25px',
+            },
+          }}
+        />
+      </div>
       <div className="pricing">
         <div className="plan">
           <h2 className="plan-name">{plans[0].name}</h2>
