@@ -1,19 +1,55 @@
-import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'
 import * as Components from './Components';
 import axios from "axios";
-import BaseURL from "./BaseURL";
-import secureLocalStorage from "react-secure-storage";
 import {useNavigate} from "react-router-dom";
+import secureLocalStorage from "react-secure-storage"
+import { Link } from 'react-router-dom';
 import Loader from './Loader';
+import BaseURL from './BaseURL';
+
 
 const Signin = () => {
+    
+
+    /****************************** */
+      //hadi bach katchof wach deja user 3aml login wla lae bach may9drch ydkhol n dashboard b link
+        const[auth , setAuth]= useState('');
+        const history1 = useNavigate(); //hadi rah hya li 3amlha kat3ml check if the user auth or not bach may3awdch ydkhol n signin page
+        const [checkout, setCheckout] = useState('')
+        useEffect(()=>{
+            var auth = secureLocalStorage.getItem('au')
+            //console.log(auth)
+            setAuth(auth)
+
+
+            //hadi bach nchof parameter f link wach signup wla signin
+            const urlParams = new URLSearchParams(window.location.search);
+            const signUpParam = urlParams.get('signup');
+            setCheckout(urlParams.get('co'));
+        
+            if (signUpParam === 'true') {
+              toggle(false);
+            }
+        },[])
+        if (auth){
+            history1(`/dashboard`)
+        }
+
+
+    /***************************** */
+
     const [signIn, toggle] = React.useState(true);
-    const [inputs, setInputs] = useState({});
-    const [errors, setErrors] = useState('');
-    const [error, setError] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
-const handleChange = (event) => {
+  /***********************************************************sign up part */
+      const [inputs, setInputs] = useState({});
+      //had error kanstocker fiha error messages dyal ida kan email deja kayn f DB wla err dyal cnx
+      const [error, setError] = useState("");
+      //had errors kanstocker fiha error msg li ghayban ida b9at chi input khawya
+      const [errors, setErrors] = useState('');
+
+      const [isLoading, setIsLoading] = useState(false); // Add isLoading state
+
+
+      const handleChange = (event) => {
           const name = event.target.name;
           const value = event.target.value;
           setInputs(values => ({...values, [name]: value}));
@@ -36,7 +72,8 @@ const handleChange = (event) => {
         //}
 
 
-      }
+      } 
+
 const handleSubmit = async (event) => {
     event.preventDefault();
     // check if there are any errors bach ida kano matdozch submit
@@ -55,12 +92,14 @@ const handleSubmit = async (event) => {
             setError("");
             setErrors("")
             console.log("Record created successfully.");
-
+            //store the data in crypted mode in local storage
             secureLocalStorage.setItem('n', response.data.name);
             secureLocalStorage.setItem('e', response.data.email);
             secureLocalStorage.setItem('i', response.data.id);
             secureLocalStorage.setItem('p', response.data.phone);//ida makhdmatch msha
 
+            //secureLocalStorage.setItem('au', "true");
+            history(`/checkout?co=${checkout}`);
         }
     } catch (error) {
         console.log(error);
@@ -68,6 +107,8 @@ const handleSubmit = async (event) => {
     }
     setIsLoading(false); // Hide loader after response
 };
+
+
 const [errorss, setErrorss] = useState({});
 const [inputss, setInputss] = useState({});
 const handleChangee = (event) => {
