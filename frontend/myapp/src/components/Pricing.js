@@ -168,7 +168,7 @@ function Pricing() {
               <li key={index}>{feature}</li>
             ))}
           </ul>
-          <button className="subscribe-btn" >Subscribe</button>
+          <button className="subscribe-btn" onClick={handleSubscribeClick}>Subscribe</button>
         </div>
         <div className="plan premium">
           <h2 className="plan-name">{selectedPremiumPlan.name}</h2>
@@ -179,7 +179,7 @@ function Pricing() {
               <li key={index}>{feature}</li>
             ))}
           </ul>
-          <button className="subscribe-btn" >Subscribe</button>
+          <button className="subscribe-btn" onClick={PremiumhandleSubscribeClick}>Subscribe</button>
         </div>
 
         <div className="plan">
@@ -191,7 +191,7 @@ function Pricing() {
               <li key={index}>{feature}</li>
             ))}
           </ul>
-          <button className="subscribe-btn" >Contact Us</button>
+          <button className="subscribe-btn" onClick={handleSubscribeClick}>Contact Us</button>
         </div>
         {/**
          <div className="plan">
@@ -203,7 +203,7 @@ function Pricing() {
               <li key={index}>{feature}</li>
             ))}
           </ul>
-          <button className="subscribe-btn" >Subscribe</button>
+          <button className="subscribe-btn" onClick={handleSubscribeClick}>Subscribe</button>
         </div>
          */}
       </div>
