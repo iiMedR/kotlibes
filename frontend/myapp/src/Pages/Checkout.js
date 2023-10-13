@@ -22,7 +22,18 @@ const containerStyle = {
   minHeight: '100vh',
 };
 
-  return (<div />);
+  return (
+    
+    <div >
+        <iframe
+          src={`https://kotlibes.lemonsqueezy.com/checkout/buy/${checkout}?checkout[email]=${email}`}
+          title="Checkout Overlay"
+          width= "100%"
+          style={containerStyle}
+        ></iframe>
+
+    </div>
+  );
 }
 
 export default Checkout;
