@@ -55,6 +55,85 @@ function Upgrade() {
     }
   }, []);
 
+  useEffect(() => {
+    window.createLemonSqueezy(); // Call the method after the component has mounted
+  }, []);
+
+  const handleCheckout = async () => {
+    try {
+      const calculatedPriceInCents = totalPrice * 100; // $3 = 300 cents
+
+      const requestData = {
+        data: {
+          type: 'checkouts',
+          relationships: {
+            store: {
+              data: {
+                type: 'stores',
+                id: storeID,
+              },
+            },
+            variant: {
+              data: {
+                type: 'variants',
+                id: variantID,
+              },
+            },
+          },
+          attributes: {
+            custom_price: calculatedPriceInCents,
+            // Other attributes as needed (product_options, checkout_options, checkout_data)
+            product_options: {
+              name: `${credits} Kots`,
+              redirect_url: 'https://kotlibes.com/login',
+              receipt_link_url: 'https://kotlibes.com/login',
+              receipt_thank_you_note:
+                "Once again, thank you for choosing Kotlibes! We're excited to have you as a part of our community. If you have any questions or need assistance, please don't hesitate to reach out. Your success is our priority. Best regards, /n The Kotlibes Team 🌟",
+            },
+
+            checkout_options: {
+              embed: true,
+              discount: false,
+            },
+
+            checkout_data: {
+              email: 'example@example.invalid',
+              name: 'EXAMPLE_CUSTOMER',
+            },
+          },
+        },
+      };
+
+      const response = await axios.post(
+        'https://api.lemonsqueezy.com/v1/checkouts',
+        requestData,
+        {
+          headers: {
+            Accept: 'application/vnd.api+json',
+            'Content-Type': 'application/vnd.api+json',
+            Authorization: `Bearer ${apiKey}`,
+          },
+        }
+      );
+
+      const generatedURL = response.data.data.attributes.url;
+      setCheckoutURL(generatedURL);
+    } catch (error) {
+      console.error('Error creating checkout:', error);
+      // Handle error scenario
+    }
+  };
+
+  useEffect(() => {
+    if (checkoutURL) {
+      const checkoutLink = document.querySelector('#subscribeLink');
+      if (checkoutLink) {
+        // Simulate a click on the hidden <a> element to trigger the checkout overlay
+        checkoutLink.click();
+      }
+    }
+  }, [checkoutURL]);
+
   return (<div><NavDashboard /></div>);
 }
 export default Upgrade;
