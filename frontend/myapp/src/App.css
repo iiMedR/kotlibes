@@ -1348,3 +1348,269 @@ z-index: 999;
 
 
 
+
+/************************************************************** upgrade and billing */
+
+/*********************billing container part 1*/
+.billingContainer{
+  position: fixed;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: calc(100vw - 280px);
+  overflow:auto;
+  height:calc(100% - 100px);
+  background-color: rgb(255, 255, 255);
+  padding-top: 40px;
+  padding-bottom: 180px;
+}
+
+.planCard{
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+  height: auto; /* Maintain aspect ratio */
+  background-image: url('./assets/img/1234.jpg');
+  background-size: cover;
+  background-position: center center;
+  color: white;
+  transition: transform .3s ease-in-out; 
+  border-radius: 5px;
+  border: none;
+}
+
+.titleSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-small {
+  width: 90px;
+  height: 70px;
+}
+
+.cardBody {
+  display: flex;
+  align-items: center; /* Vertically center items */
+}
+
+.iconSection {
+  float: left;
+  margin-right: 10px;
+}
+
+.infoSection {
+  flex-grow: 1; /* Allow the info-section to grow and take available space */
+}
+
+.creditCard{
+  color: rgb(255, 255, 255) !important;
+  padding: 0 !important;
+  backdrop-filter: blur(5px) !important; /* Add backdrop-filter for the blur effect */
+  background-color: rgba(255, 255, 255, 0.2) !important; /* Add transparency to the background color */
+}
+
+/********************************ADD credits part 2 Credits 💰*/
+.addCreditsContainer{
+  margin-top: 150px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.addCredits{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 50%;
+  min-width: 350px;
+  height: 100%;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  box-shadow: -5px 5px 0px #0d276f;
+}
+
+/********************************Plans & Billing 🧾*/
+.PlanContainer{
+  width: 98%;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+.planTitle{
+  font-weight: bold;
+  font-size: 35px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.PlanContainer .planCardsContainer{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.premiumPlan , .platinumPlan{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  margin: 20px;
+  margin-bottom: 200px;
+  width: 350px;
+  height: 100%;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.premiumPlan:hover , .platinumPlan:hover{
+  scale: calc(1.05);
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 5px;
+}
+
+/* Add this to your existing CSS */
+
+.planStatusCircle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0);
+}
+
+.planStatusCircle::before {
+  content: '\2714'; /* Unicode escape sequence for checkmark */
+  font-size: 14px; /* Adjust font size as needed */
+  color: white; /* Adjust color as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.planInactiveStatus{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.activePlan{
+  box-shadow: -5px 5px 0px rgb(0, 0, 0);
+}
+
+/* ... rest of your existing CSS */
+
+
+.planCardName{
+  color: white;
+  font-size: 40px;
+}
+
+.planCardPrice{
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.planCardPeriod {
+  font-size: 18px;
+}
+
+.planCredits {
+  display: flex;
+  font-size: 25px;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 50px;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  font-weight: 900;
+}
+
+.subscribePlanBtn {
+  background-color: white;
+  color: #1e59fa;
+  border: none;
+  padding: 10px 25%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.subscribePlanBtn:hover {
+  scale: calc(1.05);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 992px) {
+  
+  .billingContainer {
+    width: 100vw !important;
+    position: inherit !important;
+  }
+  .planCard{
+    margin-top: 100px;
+  }
+
+  .PlanContainer .planCardsContainer {
+    flex-direction: column; /* Stack cards vertically */
+    margin: 0 !important;
+
+  }
+
+  .premiumPlan,
+  .platinumPlan {
+    margin: 20px auto; /* Adjust margin to create spacing between stacked cards */
+    width: 80vw !important;
+  }
+
+  .planTitle{
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .planCardName{
+    font-size: 30px;
+  }
+  
+  .planCardPrice{
+    font-size: 30px;
+    font-weight: 500;
+  }
+  
+  .planCardPeriod {
+    font-size: 14px;
+  }
+  
+  .planCredits {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .subscribePlanBtn {
+    font-size: 12px;
+  }
+}
+
