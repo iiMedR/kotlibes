@@ -134,6 +134,150 @@ function Upgrade() {
     }
   }, [checkoutURL]);
 
-  return (<div><NavDashboard /></div>);
+  return (
+    <div>
+      <NavDashboard />
+      <div className="billingContainer">
+        <Card className="planCard">
+          <Card.Body>
+            <div className="titleSection">
+              <Card.Title>{plan} Plan</Card.Title>
+              <h6 className="days-remaining">
+                {daysRemaining === 0 ? '0 days remaining' : `${daysRemaining} days remaining`}
+              </h6>
+            </div>
+            <p>Include up to 15 tools that help your business grow</p>
+            <Card className="creditCard">
+              <Card.Body className="cardBody">
+                <section className="iconSection">
+                  {cardIcon && <img src={cardIcon} alt={cardType} className="icon-small" />}
+                </section>
+                <section className="infoSection">
+                  <h6>
+                    {cardType} {cardNumber}
+                  </h6>
+                  <h6>{secureLocalStorage.getItem('n')}</h6>
+                </section>
+              </Card.Body>
+            </Card>
+          </Card.Body>
+        </Card>
+
+        <div className="addCreditsContainer">
+          <h2 className="planTitle" style={{ textAlign: 'left' }}>
+            Credits 💰
+          </h2>
+          <div style={{ width: '80%', display: 'flex', justifyContent: 'center', margin: '0 auto' }}>
+            <InputSlider
+              style={{ width: '100%', textAlign: 'center', marginBottom: '25px', marginTop: '25px' }}
+              axis="x"
+              x={credits}
+              xmax={1000}
+              xmin={30}
+              xstep={10}
+              onChange={({ x }) => setCredits(x)}
+              styles={{
+                track: {
+                  backgroundColor: '#1e59fa60',
+                },
+                active: {
+                  backgroundColor: '#1e59fa',
+                },
+                thumb: {
+                  border: '2px solid #1e59fa',
+                  backgroundColor: '#fff',
+                  height: '25px',
+                  width: '25px',
+                },
+              }}
+            />
+          </div>
+
+          <div className={'addCredits'} style={{ backgroundColor: '#4e7bf860' }}>
+            <h2 className="planCardName" style={{ background: '#1e59fa', color: 'white', padding: '10px', borderRadius: '10px', textAlign: 'center' }}>
+              {credits} Kots
+            </h2>
+            <p className="planCardPrice" style={{ color: '#1e59fa', textAlign: 'center' }}>
+              ${totalPrice.toFixed(2)}
+            </p>
+            <p style={{ color: '#1e59fa', fontSize: '14px' }}>
+              Your credits to unlock tools on our platform.
+              <br />
+              More KOTS means more tools at your fingertips.
+            </p>
+            <button className="subscribePlanBtn" onClick={handleCheckout}>
+              Purchase KOTS
+            </button>
+            <a id="subscribeLink" href={checkoutURL} className="subscribe-btn lemonsqueezy-button" style={{ display: 'none' }}>
+              Subscribe
+            </a>
+            <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+            <br />
+          </div>
+        </div>
+
+        <div className="PlanContainer">
+          <h2 className="planTitle">Plans & Billing 🧾</h2>
+          <p>Your Current Plan is: {plan}</p>
+          <div className="planCardsContainer">
+            <div
+              className={`premiumPlan ${plan === 'Premium' ? 'activePlan' : ''}`}
+              style={{ backgroundColor: '#f5ca9a60' }}
+            >
+              {plan === 'Premium' && <div className="planStatusCircle"></div>}
+              {plan !== 'Premium' && <div className="planInactiveStatus"></div>}
+              <h2 className="planCardName" style={{ color: '#f0b87a' }}>
+                Premium
+              </h2>
+              <p className="planCardPrice" style={{ color: '#f0b87a' }}>
+                $49.99<span className="planCardPeriod" style={{ color: '#f0b87a' }}>
+                  /month
+                </span>
+              </p>
+              <p className="planCredits" style={{ background: '#e8ab68' }}>
+                260 Kots
+              </p>
+              <a
+                style={{ color: '#f0b87a', textDecoration: 'none' }}
+                href={`https://kotlibes.lemonsqueezy.com/checkout/buy/bb68a7e5-9aa7-40e8-8805-cc1b13ed5eac?embed=1&checkout[email]=${secureLocalStorage.getItem('e')}`}
+                className="subscribePlanBtn lemonsqueezy-button"
+              >
+                {plan === 'Premium' ? 'Subscribe' : 'Change Plan'}
+              </a>
+              <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+            </div>
+
+            <div
+              className={`platinumPlan ${plan === 'Platinum' ? 'activePlan' : ''}`}
+              style={{ backgroundColor: '#4e7bf860' }}
+            >
+              {plan === 'Platinum' && <div className="planStatusCircle"></div>}
+              {plan !== 'Platinum' && <div className="planInactiveStatus"></div>}
+              <h2 className="planCardName" style={{ color: '#1e59fadd' }}>
+                Platinum
+              </h2>
+              <p className="planCardPrice" style={{ color: '#1e59fadd' }}>
+                $589.99<span className="planCardPeriod" style={{ color: '#1e59fadd' }}>
+                  /year
+                </span>
+              </p>
+              <p className="planCredits" style={{ background: '#1e59fadd' }}>
+                3000
+              </p>
+              <a
+                style={{ textDecoration: 'none' }}
+                href={`https://kotlibes.lemonsqueezy.com/checkout/buy/14dde654-6cd3-4322-a649-e3a4e7e36a27?embed=1&checkout[email]=${secureLocalStorage.getItem('e')}`}
+                className="subscribePlanBtn lemonsqueezy-button"
+              >
+                {plan === 'Premium' ? 'Subscribe' : 'Change Plan'}
+              </a>
+              <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
+
 export default Upgrade;
