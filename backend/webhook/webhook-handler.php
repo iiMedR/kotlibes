@@ -18,3 +18,16 @@ if (!hash_equals($signature, hash_hmac('sha256', $requestBody, $secret))) {
     exit;
 }
 
+$data = json_decode($requestBody, true);
+
+// Check if the webhook event type is set in the payload
+if (!isset($data['meta']['event_name'])) {
+    // Event type not found
+    http_response_code(400);
+    echo "Event type not found in the payload" . PHP_EOL;
+    exit;
+}
+
+// Get the event type from the payload
+$eventType = $data['meta']['event_name'];
+
