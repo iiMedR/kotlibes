@@ -31,3 +31,63 @@ if (!isset($data['meta']['event_name'])) {
 // Get the event type from the payload
 $eventType = $data['meta']['event_name'];
 
+// Handle subscription_created event
+if ($eventType === 'order_created') {
+    $subscriptionData = $data['data']['attributes'];
+
+    // Get the user ID from the user's email
+    $query = "SELECT id FROM users WHERE email = :userEmail";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':userEmail', $subscriptionData['user_email']);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    
+    if (!$user) {
+        echo "User not found for email: ". $subscriptionData['user_email'] . PHP_EOL;
+        http_response_code(404); // User not found
+        exit;
+    }
+
+
+
+    $subsId = $data['data']['id'];
+    $userId = $user['id']; // hadi maja mn data base dyali based on email
+    $variantId = $subscriptionData['first_order_item']['variant_id'];
+    $userEmail = $subscriptionData['user_email'];
+    $createdAt = $subscriptionData['created_at'];
+    $currentDateTime = new DateTime();
+    $renewsAt = $currentDateTime->modify('+1 week')->format('Y-m-d H:i:s');
+    $updatedAt = $subscriptionData['updated_at'];
+
+    $customerIdLs = $subscriptionData['customer_id'];
+    $userName = $subscriptionData['user_name'];
+
+    // Insert subscription data into the database
+    $query = "INSERT INTO subscriptions (subs_id, user_id, variant_id, user_email, created_at, renews_at, updated_at, customer_id_ls, user_name)
+              VALUES (:subsId, :userId, :variantId, :userEmail, :createdAt, :renewsAt, :updatedAt, :customerIdLs, :userName)";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':subsId', $subsId);
+    $stmt->bindParam(':userId', $userId);
+    $stmt->bindParam(':variantId', $variantId);
+    $stmt->bindParam(':userEmail', $userEmail);
+    $stmt->bindParam(':createdAt', $createdAt);
+    $stmt->bindParam(':renewsAt', $renewsAt);
+    $stmt->bindParam(':updatedAt', $updatedAt);
+    $stmt->bindParam(':customerIdLs', $customerIdLs);
+    $stmt->bindParam(':userName', $userName);
+
+    if ($stmt->execute()) {
+        echo "Subscription data inserted into the database." . PHP_EOL;
+    } else {
+        echo "Error inserting subscription data into the database." . PHP_EOL;
+        http_response_code(500); // Internal server error
+    }
+
+
+} else {
+    echo "Unknown Event Type: $eventType" . PHP_EOL;
+    http_response_code(400);
+    exit;
+}
+?>
