@@ -84,10 +84,35 @@ if ($eventType === 'order_created') {
         http_response_code(500); // Internal server error
     }
 
+    // get the status of the variant with tokens
+    $query2 = "SELECT status, tokens FROM variants WHERE variant_id = :varid";
+    $stmt2 = $conn->prepare($query2);
+    $stmt2->bindParam(':varid', $variantId);
+    $stmt2->execute();
+    $variantData = $stmt2->fetch(PDO::FETCH_ASSOC);
+
+    if ($variantData) {
+        $status = $variantData['status'];
+        $tokens = $variantData['tokens'];
+
+        // update the status in the users table based on the variant pursached
+        $query3 = "UPDATE users SET status = :status, tokens = :tokens WHERE id = :id ";
+        $stmt3 = $conn->prepare($query3);
+        $stmt3->bindParam(':status', $status);
+        $stmt3->bindParam(':id', $userId);
+        $stmt3->bindParam(':tokens', $tokens);
+
+        if ($stmt3->execute()) {
+            echo "users table updated" . PHP_EOL;
+        } else {
+            echo "Error in users table" . PHP_EOL;
+        }
+    }
 
 } else {
+    // Unknown event type, ignore or log as needed
     echo "Unknown Event Type: $eventType" . PHP_EOL;
-    http_response_code(400);
+    http_response_code(400); // Bad request
     exit;
 }
 ?>
