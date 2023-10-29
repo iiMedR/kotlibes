@@ -109,8 +109,15 @@ const handleSubmit = async (event) => {
 };
 
 
+/* ****************************************************************************login part*/
+
 const [errorss, setErrorss] = useState({});
 const [inputss, setInputss] = useState({});
+
+const history = useNavigate();
+//const [error, setError] = useState("");
+
+
 const handleChangee = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -137,6 +144,11 @@ const handleChangee = (event) => {
         
 
 }
+
+
+
+
+
 const handleSubmit1 = async (event) => {
     event.preventDefault();
 //check if there is an error 
@@ -152,12 +164,20 @@ const handleSubmit1 = async (event) => {
         //console.log(response.data);
         if (response.data.status === 0) {
             console.log(response.data.message);
+            //store the data in crypted mode in local storage
             secureLocalStorage.setItem('n', response.data.name);
             secureLocalStorage.setItem('e', response.data.email);
             secureLocalStorage.setItem('i', response.data.id);
             secureLocalStorage.setItem('p', response.data.phone);
             secureLocalStorage.setItem('t', response.data.tokens);
             secureLocalStorage.setItem('au', "True");
+            secureLocalStorage.setItem('pl', response.data.plan);
+            secureLocalStorage.setItem('ca', response.data.created_at);
+            secureLocalStorage.setItem('ra', response.data.renews_at);
+            secureLocalStorage.setItem('cb', response.data.card_brand);
+            secureLocalStorage.setItem('clf', response.data.card_last_four);
+            secureLocalStorage.setItem('rd', response.data.remainingDays.toString());
+            console.log(secureLocalStorage.getItem('rd'))
             history("/dashboard");
         } else {
             console.log(response.data.message);
@@ -168,27 +188,12 @@ const handleSubmit1 = async (event) => {
     }
     setIsLoading(false); // Hide loader after response
 };
-const history = useNavigate();
-const [auth, setAuth] = useState('');
-const history1 = useNavigate();
-useEffect(() => {
-    var auth = secureLocalStorage.getItem('au');
-    setAuth(auth);
-}, []);
-if (auth){
-    history1(`/dashboard`);
-}
-useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const signUpParam = urlParams.get('signup');
-    if (signUpParam === 'true') {
-        toggle(false);
-    }
-}, []);
+
+
 
   return (
     <Components.Container className='signInUp'>
-        {isLoading && <Loader />}
+        {isLoading && <Loader />} {/* Display the loader component when isLoading is true */}
              <Components.SignUpContainer className='SignUpContainer' signinIn={signIn}>
                  <Components.Form className='sign-Form signup-Form' onSubmit={handleSubmit}>
                      <Components.Title className='sign-Title'>Create Account</Components.Title>
