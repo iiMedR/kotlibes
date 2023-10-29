@@ -19,6 +19,27 @@ switch ($method) {
 
         if ($user1) {
             if (verifyPassword($password, $user1['password'])) {
+                // Password is correct, check subscriptions
+                $query2 = "SELECT * FROM subscriptions WHERE user_id = :user_id";
+                $stmt2 = $conn->prepare($query2);
+                $stmt2->bindParam(':user_id', $user1['id']);
+                $stmt2->execute();
+                $subscription = $stmt2->fetch(PDO::FETCH_ASSOC);
+
+                // Calculate remaining days
+                $remainingDays = 0; // Initialize to 0 by default
+
+                if ($subscription && $subscription['renews_at']) {
+                    $renewsAt = new DateTime($subscription['renews_at']);
+                    $currentDate = new DateTime();
+                    
+                    // Compare the renewal date to the current date
+                    if ($renewsAt > $currentDate) {
+                        $interval = $currentDate->diff($renewsAt);
+                        $remainingDays = $interval->days;
+                    }
+                }
+
                 // Prepare response
                 $response = [
                     'status' => 0,
@@ -29,6 +50,11 @@ switch ($method) {
                     'phone' => $user1['phone'],
                     'tokens' => $user1['tokens'],
                     'plan' => $user1['status'],
+                    'created_at' => $subscription ? $subscription['created_at'] : null,
+                    'renews_at' => $subscription ? $subscription['renews_at'] : null,
+                    'card_brand' => $subscription ? $subscription['card_brand'] : null,
+                    'card_last_four' => $subscription ? $subscription['card_last_four'] : null,
+                    'remainingDays' => $remainingDays,
                 ];
             } else {
                 // Password is incorrect, return failure
