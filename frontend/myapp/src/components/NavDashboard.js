@@ -57,6 +57,7 @@ function NavDashboard() {
                         </ul>
                     </div>
                 )}
+                <button className='wallet'>💰 wallet : {secureLocalStorage.getItem('t')}Kots</button>
             </div>
         </div>
     );

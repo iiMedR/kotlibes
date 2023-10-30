@@ -1614,3 +1614,23 @@ z-index: 999;
   }
 }
 
+
+.dashboard-navbar .wallet{
+  position:absolute;
+  font-size: 18px;
+  left: 50px;
+  margin-top: 20px;
+  background-color: #ffffff !important;
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+
+}
+@media (max-width: 768px) {
+.dashboard-navbar .wallet{
+    padding: 10px;
+    font-size: 12px !important;
+  }
+}
