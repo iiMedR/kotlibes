@@ -1628,7 +1628,7 @@ z-index: 999;
   z-index: 999;
 
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 992px) {
 .dashboard-navbar .wallet{
     padding: 10px;
     font-size: 12px !important;
