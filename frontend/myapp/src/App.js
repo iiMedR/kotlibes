@@ -1,6 +1,9 @@
 import './App.css';
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PricingPage from './Pages/PricingPage';
+import Checkout from './Pages/Checkout';
+import Upgrade from './Pages/Upgrade';
 import Login from './Pages/LoginPage';
 import Dashboard from './Pages/Dashboard';
 import EmailsWritingLG from './Pages/tool-pages/EmailsWritingLG';
@@ -34,6 +37,9 @@ class App extends Component {
             <Route path="/settings" element={<Settings />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/changepassword" element={<ChangePassword />} />
+            <Route path="/Pricing" element={<PricingPage />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/upgrade" element={<Upgrade />} />
           </Routes>
         </Router>
     );

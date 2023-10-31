@@ -1634,3 +1634,428 @@ z-index: 999;
     font-size: 12px !important;
   }
 }
+/*************Pricing-Page (not componont but all the page)*****************************/
+
+.prc-page{
+  padding-top: 100px;
+}
+
+.prc-page-container{
+
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-bottom: -200px;
+}
+
+
+/**********************Accordion***************************************/
+.accordion-title {
+  font-weight: bold;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 50px;
+
+}
+
+.accordion-title-blue{
+  color: #1e59fa;
+  width: 100%;
+  height: 20%; /* Adjust the height of the underline to your preference */
+
+}
+
+/* Media query for mobile screens */
+@media (max-width: 771px) {
+  /* Update the width of the accordion to fit the mobile screen */
+  .MuiAccordion-root {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Adjust font size for mobile screens */
+  .accordion-title {
+    font-size: 24px;
+  }
+}
+
+
+
+
+
+/************ Navbar Css ************/
+
+/* Default styles for the navbar */
+nav.navbar {
+  padding: 18px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition: 0.32s ease-in-out;
+}
+
+nav.navbar.scrolled {
+  padding: 0;
+  backdrop-filter: blur(10px); /* Add backdrop-filter for the blur effect */
+  background-color: rgba(18, 18, 18, 0.35); /* Add transparency to the background color */
+}
+
+nav.navbar.dark-bg {
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  background:  #1E65FA;
+}
+
+nav.navbar a.navbar-brand {
+  width: 15%;
+}
+
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400;
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+  opacity: 1;
+}
+
+span.navbar-text {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-text .vvd {
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin-left: 18px;
+  position: relative;
+  background-color: transparent;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-text .vvd span {
+  z-index: 1;
+}
+
+.navbar-text .vvd::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-text .vvd:hover {
+  color: #121212;
+}
+
+.navbar-text .vvd:hover::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+nav.navbar .navbar-toggler:active,
+nav.navbar .navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+nav.navbar .navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 2px solid #fff;
+  transition: all 300ms linear;
+  top: -2px;
+}
+
+nav.navbar .navbar-toggler-icon:focus {
+  border-bottom: 2px solid #fff;
+}
+
+nav.navbar .navbar-toggler-icon:after,
+nav.navbar .navbar-toggler-icon:before {
+  width: 24px;
+  position: absolute;
+  height: 2px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  content: '';
+  z-index: 2;
+  transition: all 300ms linear;
+}
+
+nav.navbar .navbar-toggler-icon:after {
+  top: 8px;
+}
+
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+  transform: rotate(45deg);
+  background-color: #fff;
+  height: 2px;
+}
+
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+  transform: translateY(8px) rotate(-45deg);
+  background-color: #fff;
+  height: 2px;
+}
+
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  border-color: transparent;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  /* Reset styles for mobile */
+  nav.navbar {
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition: 0.32s ease-in-out;
+  }
+
+  nav.navbar.dark-bg {
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    background:  #1E65FA !important;
+  }
+
+  nav.navbar.non-scrolled-bg {
+    background-color: rgba(18, 18, 18, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  nav.navbar.scrolled {
+    padding: 10px 0;
+    backdrop-filter: blur(10px); /* Add backdrop-filter for the blur effect */
+    background-color: rgba(18, 18, 18, 0.2); /* Add transparency to the background color */
+  }
+
+  nav.navbar a.navbar-brand img {
+    width: 100px; /* Adjust the width as needed */
+  }
+
+  .navbar-brand,
+  .navbar-toggler {
+    text-align: center;
+  }
+
+  nav.navbar.collapsed {
+    padding: 0;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row; /* Display the navigation links horizontally */
+    align-items: left;
+    justify-content: space-around; /* Adjust the spacing between links */
+    width: 100%; /* Set the width to take up the full screen */
+    padding: 10px 0; /* Add some padding around the links */
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+  }
+
+  /* Style for the Connexion button */
+  .navbar-text .vvd {
+    font-size: 14px; /* Adjust font size for better fit */
+    padding: 10px 15px; /* Adjust the padding as needed */
+    border: 1px solid #fff; /* Add border for consistency */
+    color: #fff; /* Change the text color */
+    border-radius: 5px; /* Add border radius for a more button-like appearance */
+    transition: 0.3s ease-in-out;
+  }
+
+  .navbar-text .vvd::before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .navbar-text .vvd:hover {
+    color: #121212;
+  }
+  
+  .navbar-text .vvd:hover::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+
+
+
+
+/************************ FOOTER ******************************************/
+
+  .mainFooter {
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background: linear-gradient(to right, #1E65FA, #2C82FF);
+    color: #fff;
+    font-size: 14px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 50px rgba(78, 122, 255, 0.8);
+  }
+  
+  .footerContainer {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .footerRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footerCol {
+    width: 25%;
+    padding: 0 5px;
+  }
+  
+  .footerCol h4 {
+    margin-bottom: 20px;
+  }
+  
+  .list-unstyled li {
+    padding: 5px 0;
+  }
+  
+  .footerCol-sm {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  @media screen and (max-width: 960px) {
+    .footerCol {
+      width: 50%;
+      margin-bottom: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .footerCol {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .mainFooter {
+      padding-top: 30px;
+    }
+    .footerCol {
+      padding: 0;
+      margin-bottom: 30px;
+    }
+    .footerRow {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footerCol-sm {
+      margin-top: 20px;
+    }
+  }
+  
+  .footerRow-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #fff;
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+  
+  .footerCol input[type='email'] {
+    width: 100%;
+    padding: 0.5rem 3rem;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+  }
+
+  .footerCol button {
+    width: 100%;
+    background: white;
+    color: #1E65FA;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .footerCol button:hover{
+    transition: 0.2s ease-in-out;
+    background-color: #133d99;
+    color: white;
+    
+  }
+
+  .footerCol-r{
+    padding-top: 15px;
+    margin: 0 auto;
+    margin-left: 0;
+  }
+
+  .footerCol .list-unstyled li a,
+  .footerCol-sm p a {
+    color: #e9f0ff;
+    text-decoration: none;
+  }
+
+  .footerCol .list-unstyled li a:hover,
+  .footerCol-sm p a:hover{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .footerCol-sm{
+    padding-top: 15px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    margin-right: 0;
+  }
+  .footerCol-sm p{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  
