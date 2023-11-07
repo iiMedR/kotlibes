@@ -2059,3 +2059,133 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 
   
+/************ Banner Css ************/
+.banner {
+  margin-top: 0;
+  padding: 150px 0 100px 0;
+  background-image: url('./assets/img/banner-bg.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+.banner .tagline {
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  background: linear-gradient(90.21deg, rgba(157, 237, 255, 0.5) -5.91%, rgba(78, 122, 255, 0.5) 111.58%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.banner .welcoming {
+  color: white;
+  font-size: 59px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+.banner p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+}
+.vvd1{
+  text-decoration: none;
+}
+.banner button {
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  background-color: Transparent;
+  border: 0;
+  color: #fff;
+}
+.banner button svg {
+  font-size: 25px;
+  margin-left: 18px;
+  line-height: 1;
+}
+.banner button:hover svg {
+  transition: 0.3s ease-in-out;
+  margin-left: 35px;
+}
+.banner img {
+  animation: updown 3s linear infinite;
+}
+@keyframes updown {
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+.txt-rotate > .wrap {
+  border-right: 0.08em solid #666;
+}
+
+.welcometxt{
+  color: #fff !important;
+}
+
+.headerImg{
+  height: 100%;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .banner {
+    padding: 80px 0; /* Adjust padding for mobile */
+    text-align: left; /* Center-align content for mobile */
+  }
+
+  .banner .tagline {
+    font-size: 14px; /* Adjust font size for mobile */
+    padding: 5px 8px; /* Adjust padding for mobile */
+    font-weight: 500; /* Adjust font weight for mobile */
+  }
+
+  .banner .welcoming {
+    font-size: 32px; /* Adjust font size for mobile */
+    margin-bottom: 10px; /* Adjust margin for mobile */
+  }
+
+  .banner p {
+    font-size: 14px; /* Adjust font size for mobile */
+    line-height: 1.6; /* Adjust line-height for mobile */
+  }
+
+  .banner button {
+    font-size: 14px; /* Adjust font size for mobile */
+    margin-top: 30px; /* Adjust margin for mobile */
+    padding: 10px 20px; /* Adjust padding for mobile */
+  }
+
+  .banner button svg {
+    font-size: 18px; /* Adjust font size for mobile */
+    margin-left: 8px; /* Adjust margin for mobile */
+  }
+
+  .banner img {
+    animation: none; /* Remove animation for mobile */
+    max-width: 90%; /* Set smaller max width for mobile */
+    height: auto; /* Set height to auto for mobile */
+    display: block; /* Center the image */
+    margin: 20px auto; /* Add margin to center the image */
+  }
+
+}
+
+
