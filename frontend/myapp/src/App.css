@@ -2268,3 +2268,141 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 
+
+/***********Facts****************/
+/* Optimized CSS for Facts component */
+.factContainer {
+  margin-top: 200px;
+  position: relative;
+}
+
+.factContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1500px;
+  width: 2000px;
+  height: 2000px;
+  background: linear-gradient(to right, #1552d7, #1552d7);
+  opacity: 0.25;
+  filter: blur(900px);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.factsContainer1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.factsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.factsTitle h1 {
+  white-space: pre-line;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+}
+
+.factsTitle h1 span {
+  color: #1e59fa;
+}
+
+.fact {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 0;
+  margin-bottom: 50px;
+  width: 25%;
+}
+
+.fact p {
+  font-size: 14px;
+  margin-right: 40px;
+  text-align: justify;
+}
+
+.factSource {
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Responsive styles for mobile */
+/* Optimized CSS for Facts component - Mobile screen */
+@media (max-width: 768px) {
+  .factContainer {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  /* Remove the gradient background from the factContainer::before pseudo-element */
+  .factContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 0px;
+    height: 0px;
+    background: #fff;
+  }
+
+  .factsTitle {
+    margin-bottom: -60px;
+  }
+
+  .factsTitle h1{
+    font-size: 28px;
+  }
+
+  /* Allow facts to wrap in mobile and adjust spacing */
+  .factsContainer1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  /* Center-align the facts */
+  .fact {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative; /* Add relative positioning to the fact container */
+  }
+
+  /* Increase font size and add blue color to percentage number */
+  .fact h3 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #1e59fa;
+    margin-bottom: 8px;
+  }
+
+  /* Adjust font size and spacing for fact description */
+  .fact p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  /* Move the fact source to the right */
+  .factSource {
+    margin-top: -20px !important;
+    font-size: 15px !important; 
+    font-style: italic;
+    text-align: right;
+    position: absolute; /* Use absolute positioning to move the fact source */
+    right: 0;
+  }
+}
+
+
+
