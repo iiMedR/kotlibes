@@ -2406,3 +2406,123 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 
 
+
+/***********OUR STORY****************/
+
+.storyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align content horizontally */
+  margin: 150px 10%; /* Adjust margin for better spacing */
+}
+
+.storyTitle {
+  font-size: 28px;
+  font-weight: 100;
+  margin-bottom: 16px; /* Add margin-bottom for spacing */
+  text-align: center; /* Center-align text */
+}
+
+.story {
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center; /* Center-align text */
+}
+
+.story .color1 {
+  color: #f5ca9a;
+}
+
+.story .color2 {
+  color: #FE6244;
+}
+
+.story .color3 {
+  color: #FC2947;
+}
+
+.story .color4 {
+  color: #4e7bf8;
+}
+
+.storyInfo {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically in mobile */
+  align-items: center; /* Center-align content horizontally */
+  margin-top: 50px; /* Adjust margin-top for spacing */
+}
+
+.storyInfo-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-bottom: 16px; /* Add margin-bottom for spacing */
+  background-image: url('./assets/img/reda1.jpeg'); /* Set the image as background */
+  background-size: cover; /* Scale the image to cover the circle */
+  background-position: center; /* Center the image within the circle */
+  border: 3px solid #000000; /* Add a blue border to the image */
+}
+
+.storyInfo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align content horizontally */
+}
+
+.storyInfo-text .storyFullname {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.storyInfo-text .storyAbout {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .storyContainer {
+    margin: 50px 5%; /* Adjust margin for better spacing in mobile */
+  }
+
+  .storyTitle {
+    font-size: 28px !important; /* Adjust font size for mobile */
+    font-weight: 300;
+  }
+
+  .story {
+    font-size: 20px; /* Adjust font size for mobile */
+  }
+
+  .storyInfo {
+    flex-direction: row; /* Stack elements horizontally in mobile */
+    align-items: center; /* Center-align content horizontally */
+  }
+
+  .storyInfo-pic {
+    margin-right: 16px; /* Adjust margin for better spacing in mobile */
+    width: 70px;
+    height: 70px;
+  }
+
+  .storyInfo-text {
+    align-items: flex-start; /* Align text to the left in mobile */
+  }
+
+  .storyInfo-text .storyFullname {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .storyInfo-text .storyAbout {
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+}
+
+
