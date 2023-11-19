@@ -111,6 +111,16 @@ CREATE TABLE IF NOT EXISTS `variants` (
   `tokens` int(11) DEFAULT NULL,
   PRIMARY KEY (`variant_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `newsletter`;
+CREATE TABLE IF NOT EXISTS `newsletter` (
+  `newsletter_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) DEFAULT NULL,
+  `user` tinyint(1) DEFAULT NULL,
+  `date_inscreption` datetime DEFAULT NULL,
+  `id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`newsletter_id`),
+  KEY `id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
