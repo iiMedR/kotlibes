@@ -48,5 +48,13 @@ switch($method) {
         $stmt->bindParam(':date_inscreption', $date_insc);
         $stmt->bindParam(':id', $already_user);
 
+        if ($stmt->execute()) {
+            $response = ['status'=> 0,'message' => 'created record.'];
+        } else {
+            $response = ['status'=> 1,'message' => 'Failed to create record.'];
+        }
+        echo json_encode($response);
+
 
 }
+
