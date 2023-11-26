@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import secureLocalStorage from 'react-secure-storage';
+import CrispCom from '../components/CrispCom';
 import NavDashboard from '../components/NavDashboard';
 import { Card } from 'react-bootstrap';
 import axios from 'axios';
@@ -151,6 +152,7 @@ function Dashboard() {
           </div>
           {/**----------------------------------------------------------- */}
       </div>
+        <CrispCom />
     </div>
     </>
   )
