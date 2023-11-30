@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PricingPage from './Pages/PricingPage';
 import Checkout from './Pages/Checkout';
 import Upgrade from './Pages/Upgrade';
+import HomePage from './Pages/HomePage';
 import Login from './Pages/LoginPage';
 import Dashboard from './Pages/Dashboard';
 import EmailsWritingLG from './Pages/tool-pages/EmailsWritingLG';
@@ -40,6 +41,7 @@ class App extends Component {
             <Route path="/Pricing" element={<PricingPage />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/upgrade" element={<Upgrade />} />
+            <Route path="/" element={<HomePage />} />
           </Routes>
         </Router>
     );
