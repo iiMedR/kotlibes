@@ -22,6 +22,16 @@ function ToolHome() {
   const customerCommSectionRef = useRef(null);
   return (
     <div className='toolhome'>
+      <div className='bar'>
+        <ButtonGroup size="sm" aria-label="bargroup" className='bargroup'>
+          <Button className='toolhomeBTN' onClick={() => scrollSectionIntoView(sgsSectionRef)}>Strategic Growth Suite</Button>
+          <Button className='toolhomeBTN' onClick={() => scrollSectionIntoView(smmSectionRef)}>SMM Studio</Button>
+          <Button className='toolhomeBTN' onClick={() => scrollSectionIntoView(emailSectionRef)}>Email Marketing</Button>
+          <Button className='toolhomeBTN' onClick={() => scrollSectionIntoView(adGeniusSectionRef)}>AdGenius Toolkit</Button>
+          <Button className='toolhomeBTN' onClick={() => scrollSectionIntoView(seoSectionRef)}>SEO Toolbox</Button>
+          <Button className='toolhomeBTN' onClick={() => scrollSectionIntoView(customerCommSectionRef)}>Customer Communication</Button>
+        </ButtonGroup>
+      </div>
     </div>
   )
 }
