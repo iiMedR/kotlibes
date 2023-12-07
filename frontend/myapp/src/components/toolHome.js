@@ -32,6 +32,57 @@ function ToolHome() {
           <Button className='toolhomeBTN' onClick={() => scrollSectionIntoView(customerCommSectionRef)}>Customer Communication</Button>
         </ButtonGroup>
       </div>
+      <h1 id='ttl' ref={sgsSectionRef}>Strategic Growth Suite 📈🚀</h1>
+      <div className='containerr'>
+        <Link id="sidebare-link" to="./marketing-strategy">
+          <Card className='toolcard'>
+            <Card.Body>
+              <h6>Strategic growth suite</h6>
+              <Card.Title>Marketing Strategy</Card.Title>
+              <Card.Text className='cardDesc'>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./buyer-persona">
+          <Card className='toolcard'>
+            <Card.Body>
+              <h6>Strategic growth suite</h6>
+              <Card.Title>Buyer Persona</Card.Title>
+              <Card.Text className='cardDesc'>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./usp-generator">
+          <Card className='toolcard'>
+            <Card.Body>
+              <h6>Strategic growth suite</h6>
+              <Card.Title>USP</Card.Title>
+              <Card.Text className='cardDesc'>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Marketing-Roadmap">
+          <Card className='toolcard'>
+            <Card.Body>
+              <h6>Strategic growth suite</h6>
+              <Card.Title>Marketing Roadmap</Card.Title>
+              <Card.Text className='cardDesc'>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+      </div>
+
     </div>
   )
 }
