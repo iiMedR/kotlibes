@@ -83,6 +83,57 @@ function ToolHome() {
         </Link>
       </div>
 
+      <h1 id='ttl' ref={smmSectionRef}>SMM Studio 📱🎥</h1>
+      <div className='containerr'>
+        <Link id="sidebare-link" to="./instagram-content-ideas">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>SMM Studio</h6>
+              <Card.Title>Instagram Content Ideas</Card.Title>
+              <Card.Text className='cardDesc'>
+                generate some content ideas to increase your instagram engagement. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./tiktok-content-ideas">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>SMM Studio</h6>
+              <Card.Title>Tiktok Content Ideas</Card.Title>
+              <Card.Text className='cardDesc'>
+                generate some content ideas to increase your Tiktok engagement. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./linkedin-content-ideas">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>SMM Studio</h6>
+              <Card.Title>Linkedin Content Ideas</Card.Title>
+              <Card.Text className='cardDesc'>
+                generate some content ideas to increase your Linkedin engagement. 
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./instagram-post-Scripts">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>SMM Studio</h6>
+              <Card.Title>Instagram Post Script</Card.Title>
+              <Card.Text className='cardDesc'>
+                Instantly generate captivating Instagram post scripts for maximum engagement and social media success.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+      </div>
+
     </div>
   )
 }
