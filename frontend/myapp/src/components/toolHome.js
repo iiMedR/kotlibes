@@ -134,6 +134,33 @@ function ToolHome() {
         </Link>
       </div>
 
+      <h1 id='ttl' ref={emailSectionRef}>Email Marketing ✉️📬</h1>
+      <div className='containerr'>
+        <Link id="sidebare-link" to="./email-increasing-sales">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>EMAIL MARKETING</h6>
+              <Card.Title>Emails Writing (Increasing Sales)</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./email-leads-generation">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>EMAIL MARKETING</h6>
+              <Card.Title>Emails Writing (Leads Generation)</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+      </div>
+
     </div>
   )
 }
