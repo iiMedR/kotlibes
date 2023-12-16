@@ -161,6 +161,107 @@ function ToolHome() {
         </Link>
       </div>
 
+      <h1 id='ttl' ref={adGeniusSectionRef}>AdGenius Toolkit 📢🌟</h1>
+      <div className='containerr'>
+        <Link id="sidebare-link" to="./Ad-Copy">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>AdGenius Toolkit</h6>
+              <Card.Title>Ad Copy</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Ad-Creative">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>AdGenius Toolkit</h6>
+              <Card.Title>Ad Creative</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Target-Audience">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>AdGenius Toolkit</h6>
+              <Card.Title>Target Audience</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Demographics">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>AdGenius Toolkit</h6>
+              <Card.Title>Demographics</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Interests">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>AdGenius Toolkit</h6>
+              <Card.Title>Interests</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Ad-Headline-Generator">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>AdGenius Toolkit</h6>
+              <Card.Title>Ad Headline Generator</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Video-Ad-Script-Generator">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>AdGenius Toolkit</h6>
+              <Card.Title>Video Ad Script Generator</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+{/*
+        <Link id="sidebare-link" to="./Ad-Performance-Analyzer">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>AdGenius Toolkit</h6>
+              <Card.Title>Ad Performance Analyzer</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+  */}
+        
+      </div>
+
     </div>
   )
 }
