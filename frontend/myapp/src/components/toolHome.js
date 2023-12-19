@@ -262,6 +262,45 @@ function ToolHome() {
         
       </div>
 
+      <h1 id='ttl' ref={seoSectionRef}>SEO Toolbox 🔍🧰</h1>
+      <div className='containerr'>
+        <Link id="sidebare-link" to="./Meta-Tag-Generator">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>SEO Toolbox</h6>
+              <Card.Title>Meta Tag Generator</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Headline-Analyzer">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>SEO Toolbox</h6>
+              <Card.Title>Headline Analyzer</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./SEO-Friendly-Content-Outlines">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>SEO Toolbox</h6>
+              <Card.Title>SEO Friendly Content Outlines</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+      </div>
+
     </div>
   )
 }
