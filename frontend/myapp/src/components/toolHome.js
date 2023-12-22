@@ -301,6 +301,32 @@ function ToolHome() {
         </Link>
       </div>
 
+      <h1 id='ttl'ref={customerCommSectionRef}>Customer communication 💬🤝</h1>
+      <div className='containerr'>
+        <Link id="sidebare-link" to="./Angry-User-Message-Response">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>Customer communication</h6>
+              <Card.Title>Angry User Message Response</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+
+        <Link id="sidebare-link" to="./Confused-User-Message-Response">
+          <Card className='toolcard' >
+            <Card.Body>
+            <h6>Customer communication</h6>
+              <Card.Title>Confused User Message Response</Card.Title>
+              <Card.Text>
+                a small description about the tool, and what it can provide to u.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Link>
+      </div>
     </div>
   )
 }
