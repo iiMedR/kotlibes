@@ -2526,3 +2526,151 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 
+
+/**********************tools home ****************************/
+
+@media screen and (max-width: 992px) {
+  
+  .toolhome {
+    width: 100% !important;
+    position: inherit !important;
+  }
+
+  .containerr {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important; /* divide the container into 3 equal columns */
+    /*grid-column-gap: 10px; /* add a 10px gap between columns */
+  }
+
+  .bar{
+    margin-top: 60px;
+  }
+
+  .toolhomeBTN{
+    font-size: 12px !important;
+  }
+  .toolcard h6{
+    font-size: 14px !important;
+  }
+  .toolcard .card-title{
+    font-size: 20px !important;
+  }
+  .cardDesc {
+    font-size: 14px !important;
+  }
+  #ttl {
+    font-size: 24px !important;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .containerr {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important; /* divide the container into 3 equal columns */
+    /*grid-column-gap: 10px; /* add a 10px gap between columns */
+  }
+
+  .toolcard{
+    margin-top: 15px !important;
+    width: 80%;
+    min-width: 250px !important;
+    margin: 0 auto !important;
+    margin-bottom: 15px !important;
+  }
+
+  .toolhome {
+    font-size: 14px !important;
+    padding-top: 60px !important;
+    padding-bottom: 120px !important;
+  }
+
+  .toolhomeBTN {
+    font-size: 10px !important;
+  }
+
+  .toolcard h6{
+    font-size: 12px !important;
+  }
+
+  .toolcard .card-title{
+    font-size: 18px !important;
+  }
+
+  .cardDesc {
+    font-size: 12px !important;
+  }
+
+  #ttl {
+    font-size: 24px !important;
+    margin-left: 0px !important;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+
+.toolhome{
+  position: fixed;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: calc(100vw - 280px);
+  overflow:auto;
+  height:calc(100% - 100px);
+  background-color: rgb(255, 255, 255);
+  padding-top: 80px;
+  padding-bottom: 180px;
+} 
+
+.toolhomeBTN{
+  background: white !important;
+  border: 1px solid #1e59fa !important;
+  font-weight:400 !important;
+  transition: background-color 0.5s !important; /* Add transition for smooth effect */
+  color:#275ffa !important;
+}
+
+.toolhomeBTN:hover{
+  background: #1e59fa !important;
+  border: none !important;
+  font-weight:bold;
+  transition: background-color .35s !important; /* Add transition for smooth effect */
+  color:white !important;
+}
+
+.toolhome .bar{
+  text-align: center;
+}
+
+.containerr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* divide the container into 3 equal columns */
+  /*grid-column-gap: 10px; /* add a 10px gap between columns */
+}
+
+.toolcard {
+  transition: transform .2s ease-in-out; 
+  color: #10111D;
+  text-align: left;
+  margin: 10px;
+}
+
+
+.toolcard:hover {
+  transform: scale(1.05); /* increase the size of the card on hover */
+  box-shadow: 0px 0px 15px 2px rgb(223, 223, 223);
+}
+
+.cardDesc{
+  font-size: 15px;
+  color: #10111da8;
+}
+
+#ttl{
+  margin-left: 25px;
+  margin-top: 50px;
+}
+
+
