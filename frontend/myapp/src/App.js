@@ -5,6 +5,8 @@ import PricingPage from './Pages/PricingPage';
 import Checkout from './Pages/Checkout';
 import Upgrade from './Pages/Upgrade';
 import HomePage from './Pages/HomePage';
+import Tools from '../src/Pages/Tools';
+//import MarketingStrategy from './Pages/tool-pages/marketingStrategy';
 import Login from './Pages/LoginPage';
 import Dashboard from './Pages/Dashboard';
 import EmailsWritingLG from './Pages/tool-pages/EmailsWritingLG';
@@ -42,6 +44,8 @@ class App extends Component {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/upgrade" element={<Upgrade />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/Tools" element={<Tools />} />
+            {/*<Route path="/Tools/marketing-strategy" element={<MarketingStrategy />} />*/}
           </Routes>
         </Router>
     );
