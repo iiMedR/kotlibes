@@ -7,6 +7,7 @@ import Upgrade from './Pages/Upgrade';
 import HomePage from './Pages/HomePage';
 import Tools from '../src/Pages/Tools';
 //import MarketingStrategy from './Pages/tool-pages/marketingStrategy';
+import NotFound from './components/NotFound';
 import Login from './Pages/LoginPage';
 import Dashboard from './Pages/Dashboard';
 import EmailsWritingLG from './Pages/tool-pages/EmailsWritingLG';
@@ -46,6 +47,7 @@ class App extends Component {
             <Route path="/" element={<HomePage />} />
             <Route path="/Tools" element={<Tools />} />
             {/*<Route path="/Tools/marketing-strategy" element={<MarketingStrategy />} />*/}
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </Router>
     );
