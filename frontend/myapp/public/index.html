@@ -11,10 +11,23 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+      <!-- Add Lemon Squeezy Checkout Overlay script here -->
+      <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+      <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="a736315f-6b2b-4885-a0b1-00e485f2fe1b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     <title>Kotlibes</title>
-  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
-  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="a736315f-6b2b-4885-a0b1-00e485f2fe1b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-</head>
+  </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>

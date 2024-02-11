@@ -3,6 +3,7 @@ import axios from 'axios';
 import BaseURL from './BaseURL';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import NavBar from './NavBar';
 
 function ResetPassword() {
   const [email, setEmail] = useState({});
@@ -88,6 +89,7 @@ function ResetPassword() {
 
   return (
     <>
+      <NavBar />
       <div className="resetContainer">
         <form className="resetForm" onSubmit={handleSubmit}>
           <h4>Input Your Email</h4>
