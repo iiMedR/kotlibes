@@ -22,19 +22,29 @@ SET time_zone = "+00:00";
 -- Database: `reactapp`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `password` varchar(60) NOT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `status` varchar(50) NOT NULL DEFAULT '''inactive''',
-  `tokens` int(11) NOT NULL DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`)
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+DROP TABLE IF EXISTS `newsletter`;
+CREATE TABLE IF NOT EXISTS `newsletter` (
+  `newsletter_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) DEFAULT NULL,
+  `user` tinyint(1) DEFAULT NULL,
+  `date_inscreption` datetime DEFAULT NULL,
+  `id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`newsletter_id`),
+  KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `resetpassword`
+--
+
 DROP TABLE IF EXISTS `resetpassword`;
 CREATE TABLE IF NOT EXISTS `resetpassword` (
   `token_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -45,46 +55,13 @@ CREATE TABLE IF NOT EXISTS `resetpassword` (
   PRIMARY KEY (`token_id`),
   KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-DROP TABLE IF EXISTS `tool`;
-CREATE TABLE IF NOT EXISTS `tool` (
-  `tool_id` int(11) NOT NULL AUTO_INCREMENT,
-  `tool_name` varchar(255) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`tool_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-DROP TABLE IF EXISTS `toolusage`;
-CREATE TABLE IF NOT EXISTS `toolusage` (
-  `usage_id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_id` int(11) DEFAULT NULL,
-  `tool_id` int(11) DEFAULT NULL,
-  `usage_count` int(11) DEFAULT 0,
-  `usage_date` date DEFAULT NULL,
-  PRIMARY KEY (`usage_id`),
-  KEY `client_id` (`client_id`),
-  KEY `tool_id` (`tool_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-DROP TABLE IF EXISTS `toolusageweekly`;
-CREATE TABLE IF NOT EXISTS `toolusageweekly` (
-  `usage_id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_id` int(11) DEFAULT NULL,
-  `tool_id` int(11) DEFAULT NULL,
-  `usage_count` int(11) DEFAULT NULL,
-  `usage_date` date DEFAULT NULL,
-  PRIMARY KEY (`usage_id`),
-  KEY `client_id` (`client_id`),
-  KEY `tool_id` (`tool_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-DROP TABLE IF EXISTS `toolusageyearly`;
-CREATE TABLE IF NOT EXISTS `toolusageyearly` (
-  `usage_id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_id` int(11) DEFAULT NULL,
-  `tool_id` int(11) DEFAULT NULL,
-  `usage_count` int(11) DEFAULT NULL,
-  `usage_date` date DEFAULT NULL,
-  PRIMARY KEY (`usage_id`),
-  KEY `client_id` (`client_id`),
-  KEY `tool_id` (`tool_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscriptions`
+--
+
 DROP TABLE IF EXISTS `subscriptions`;
 CREATE TABLE IF NOT EXISTS `subscriptions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -103,6 +80,101 @@ CREATE TABLE IF NOT EXISTS `subscriptions` (
   KEY `user_id` (`user_id`),
   KEY `variant_id` (`variant_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tool`
+--
+
+DROP TABLE IF EXISTS `tool`;
+CREATE TABLE IF NOT EXISTS `tool` (
+  `tool_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tool_name` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`tool_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `toolusage`
+--
+
+DROP TABLE IF EXISTS `toolusage`;
+CREATE TABLE IF NOT EXISTS `toolusage` (
+  `usage_id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) DEFAULT NULL,
+  `tool_id` int(11) DEFAULT NULL,
+  `usage_count` int(11) DEFAULT 0,
+  `usage_date` date DEFAULT NULL,
+  PRIMARY KEY (`usage_id`),
+  KEY `client_id` (`client_id`),
+  KEY `tool_id` (`tool_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `toolusageweekly`
+--
+
+DROP TABLE IF EXISTS `toolusageweekly`;
+CREATE TABLE IF NOT EXISTS `toolusageweekly` (
+  `usage_id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) DEFAULT NULL,
+  `tool_id` int(11) DEFAULT NULL,
+  `usage_count` int(11) DEFAULT NULL,
+  `usage_date` date DEFAULT NULL,
+  PRIMARY KEY (`usage_id`),
+  KEY `client_id` (`client_id`),
+  KEY `tool_id` (`tool_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `toolusageyearly`
+--
+
+DROP TABLE IF EXISTS `toolusageyearly`;
+CREATE TABLE IF NOT EXISTS `toolusageyearly` (
+  `usage_id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) DEFAULT NULL,
+  `tool_id` int(11) DEFAULT NULL,
+  `usage_count` int(11) DEFAULT NULL,
+  `usage_date` date DEFAULT NULL,
+  PRIMARY KEY (`usage_id`),
+  KEY `client_id` (`client_id`),
+  KEY `tool_id` (`tool_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `status` varchar(50) NOT NULL DEFAULT '''inactive''',
+  `tokens` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `variants`
+--
+
 DROP TABLE IF EXISTS `variants`;
 CREATE TABLE IF NOT EXISTS `variants` (
   `variant_id` int(11) NOT NULL,
@@ -110,16 +182,6 @@ CREATE TABLE IF NOT EXISTS `variants` (
   `price` float DEFAULT NULL,
   `tokens` int(11) DEFAULT NULL,
   PRIMARY KEY (`variant_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-DROP TABLE IF EXISTS `newsletter`;
-CREATE TABLE IF NOT EXISTS `newsletter` (
-  `newsletter_id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) DEFAULT NULL,
-  `user` tinyint(1) DEFAULT NULL,
-  `date_inscreption` datetime DEFAULT NULL,
-  `id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`newsletter_id`),
-  KEY `id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
