@@ -39,6 +39,106 @@ flowchart LR
 
 The original design calls the AI provider from the browser. PHP handles account data, newsletter records, usage reporting, and billing events. The diagram describes the supplied design; integrations require configuration and retain existing limitations.
 
+## Database diagram
+
+The nine tables below follow [`database/schema.sql`](database/schema.sql), including its original column names. Dashed connections show logical references used by the application. The supplied MyISAM schema defines indexes but **no foreign-key constraints**. `PK` marks a declared primary key.
+
+```mermaid
+erDiagram
+    users |o..o{ newsletter : "id"
+    users |o..o{ resetpassword : "id"
+    users |o..o{ subscriptions : "user_id"
+    variants |o..o{ subscriptions : "variant_id"
+    users |o..o{ toolusage : "client_id"
+    tool |o..o{ toolusage : "tool_id"
+    users |o..o{ toolusageweekly : "client_id"
+    tool |o..o{ toolusageweekly : "tool_id"
+    users |o..o{ toolusageyearly : "client_id"
+    tool |o..o{ toolusageyearly : "tool_id"
+
+    newsletter {
+        int(11) newsletter_id PK
+        varchar(50) email
+        tinyint(1) user
+        datetime date_inscreption
+        int(11) id
+    }
+
+    resetpassword {
+        int(11) token_id PK
+        varchar(50) token
+        datetime expiration_date
+        int(11) id
+        tinyint(1) is_used
+    }
+
+    subscriptions {
+        int(11) id PK
+        int(11) subs_id
+        int(11) user_id
+        int(11) variant_id
+        varchar(255) user_email
+        datetime created_at
+        datetime renews_at
+        datetime updated_at
+        varchar(255) card_brand
+        varchar(4) card_last_four
+        int(11) customer_id_ls
+        varchar(255) user_name
+    }
+
+    tool {
+        int(11) tool_id PK
+        varchar(255) tool_name
+        decimal price "decimal(10,2)"
+    }
+
+    toolusage {
+        int(11) usage_id PK
+        int(11) client_id
+        int(11) tool_id
+        int(11) usage_count
+        date usage_date
+    }
+
+    toolusageweekly {
+        int(11) usage_id PK
+        int(11) client_id
+        int(11) tool_id
+        int(11) usage_count
+        date usage_date
+    }
+
+    toolusageyearly {
+        int(11) usage_id PK
+        int(11) client_id
+        int(11) tool_id
+        int(11) usage_count
+        date usage_date
+    }
+
+    users {
+        int(11) id PK
+        varchar(50) name
+        varchar(60) email
+        varchar(60) password
+        varchar(255) phone
+        varchar(50) status
+        int(11) tokens
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    variants {
+        int(11) variant_id PK
+        varchar(255) name
+        float price
+        int(11) tokens
+    }
+```
+
+`toolusage`, `toolusageweekly`, and `toolusageyearly` store the daily, weekly, and yearly counters separately. Newsletter subscribers can optionally reference an existing user. Subscriptions link users to variants and store the supplied billing fields.
+
 ## Content-generation flow
 
 ```mermaid
